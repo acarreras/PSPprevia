@@ -169,7 +169,7 @@
 				<div class="contingutsboxresposta" id="resultatdefguerra3"></div>
 			</form>
 		<?php } else{ ?>
-			<div class="contingutstexttitolresposta">Com ho vas definir amb paraules tècniques o científiques?</div>
+			<div class="contingutstexttitolresposta">Com ho vas definir amb paraules de nen petit?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra3propi); ?></div>
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra3altres); ?></div>
