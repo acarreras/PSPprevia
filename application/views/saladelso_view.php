@@ -45,18 +45,18 @@
 					$("#resultattitolso4").html(resultat4);
 				});
 		});
+		
+		$("#saladelsobandasonoraok").click(function () {
+			$.post("<?php echo base_url()?>index.php/saladelso/guardarBandaSonora", {titol : $("#saladelsobandasonora").val()})
+				.done(function(banda) {
+					$("#resultatbandasonora").html(banda);
+				});
+		});
 	});
   </script>
 </head>
 <body>
 <div id="res"><div>
-	<div class="capcaleratitol"><?php if($bapartat11fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat12fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat13fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat14fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat21fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat22fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat3fet == true){ echo 'true'; } else { echo 'false'; };?></div>
 	<!-- menú superior dreta -->
 	<div class="capcaleratitol"><?php echo($titol);?></div>
 	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
@@ -154,6 +154,23 @@
 		<!-- deixa en silenci -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
+		
+		<!-- banda sonora del mon -->
+		<div class="contingutstitol"><?php echo($titolapartat4); ?></div>
+		<div class="hr"><hr/></div>
+		<?php if ($bapartat4fet == false) {?>
+			<form>
+				<input type="text" class="contingutstextform100percent" id="saladelsobandasonora" name="saladelsobandasonora"/>
+				<input id="saladelsobandasonoraok" type="button" value="ok"/>
+				<div class="contingutstexttitolresposta">Què han escrit els altres participants?</div>
+				<div class="contingutsboxresposta" id="resultatbandasonora"></div>
+			</form>
+		<?php } else { ?>
+			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
+			<div class="contingutsboxresposta"><?php echo($bandasonorapropi); ?></div>
+			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutsboxresposta"><?php echo($bandasonoraaltres); ?></div>
+		<?php } ?>
 	</div>
 </body>
 </html>

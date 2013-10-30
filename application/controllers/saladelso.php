@@ -25,6 +25,7 @@
 			$data['titolapartat1'] = $this->apartats->getApartatTitol(4); // 4 perque a la taula apartats aquest titol té id 4
 			$data['titolapartat2'] = $this->apartats->getApartatTitol(5);
 			$data['titolapartat3'] = $this->apartats->getApartatTitol(6);
+			$data['titolapartat4'] = $this->apartats->getApartatTitol(7);
 			
 			// TODO: no sé comptar amb querys :-(
 			$data['bapartat11fet'] = true;//$this->respostes->bapartatJaFet($session_data['username'], 2,11);
@@ -34,6 +35,7 @@
 			$data['bapartat21fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 2,21);
 			$data['bapartat22fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 2,22);
 			$data['bapartat3fet']  = false;//$this->respostes->bapartatJaFet($session_data['username'], 2,3);
+			$data['bapartat4fet']  = true;//$this->respostes->bapartatJaFet($session_data['username'], 2,4);
 			
 			$data['titolso1propi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,11);
 			$data['titolso1resposta'] = $this->respostes->getNomSo(2,11);
@@ -43,6 +45,8 @@
 			$data['titolso3resposta'] = $this->respostes->getNomSo(2,13);
 			$data['titolso4propi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,14);
 			$data['titolso4resposta'] = $this->respostes->getNomSo(2,14);
+			$data['bandasonorapropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,4);
+			$data['bandasonoraaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 2,4);
 			
 			$this->load->view('saladelso_view', $data);
 		}
@@ -91,6 +95,21 @@
 		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 2, 14);
 		
 		echo $result;
+	}
+	
+		function guardarBandaSonora(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		$results = $this->respostes->getUltimsTexts(2,4);
+		$str = '';
+		foreach ($results as  $row) {
+			$str .= $row->respostatext;
+			$str .= "<br/>";
+		}
+		
+		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 2, 4);
+		
+		echo $str;
 	}
 	
 }
