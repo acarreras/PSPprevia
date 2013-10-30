@@ -69,7 +69,7 @@
 			$str .= "<br/>";
 		}
 		
-		$this->respostes->guardarTitolImatge($this->input->post('titol'), $session_data['username'], 1, 1);
+		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 1, 1);
 		
 		echo $str;
 	}
@@ -93,14 +93,14 @@
 	function guardarDefGuerra1(){
 		$session_data = $this->session->userdata('logged_in');
 		
-		$results = $this->respostes->getUltimesDefinicionsGuerra(31);
+		$results = $this->respostes->getUltimsTexts(1,31);
 		$str = '';
 		foreach ($results as  $row) {
 			$str .= $row->respostatext;
 			$str .= "<br/>";
 		}
 		
-		$this->respostes->guardarDefGuerra($this->input->post('def'), $session_data['username'], 1, 31); // sala 1 apartat 3.1
+		$this->respostes->guardarText($this->input->post('def'), $session_data['username'], 1, 31); // sala 1 apartat 3.1
 		
 		echo $str;
 	}
@@ -108,14 +108,14 @@
 	function guardarDefGuerra2(){
 		$session_data = $this->session->userdata('logged_in');
 		
-		$results = $this->respostes->getUltimesDefinicionsGuerra(32);
+		$results = $this->respostes->getUltimsTexts(1,32);
 		$str = '';
 		foreach ($results as  $row) {
 			$str .= $row->respostatext;
 			$str .= "<br/>";
 		}
 		
-		$this->respostes->guardarDefGuerra($this->input->post('def'), $session_data['username'], 1, 32); // sala 1 apartat 3.2
+		$this->respostes->guardarText($this->input->post('def'), $session_data['username'], 1, 32); // sala 1 apartat 3.2
 		
 		echo $str;
 	}
@@ -123,14 +123,14 @@
 	function guardarDefGuerra3(){
 		$session_data = $this->session->userdata('logged_in');
 		
-		$results = $this->respostes->getUltimesDefinicionsGuerra(33);
+		$results = $this->respostes->getUltimsTexts(1,33);
 		$str = '';
 		foreach ($results as  $row) {
 			$str .= $row->respostatext;
 			$str .= "<br/>";
 		}
 		
-		$this->respostes->guardarDefGuerra($this->input->post('def'), $session_data['username'], 1, 33); // sala 1 apartat 3.3
+		$this->respostes->guardarText($this->input->post('def'), $session_data['username'], 1, 33); // sala 1 apartat 3.3
 		
 		echo $str;
 	}

@@ -20,7 +20,7 @@ Class Respostes extends CI_Model{
 		return false;
 	}
 	
-	function guardarTitolImatge($titol, $username, $sala, $apartat){
+	function guardarText($titol, $username, $sala, $apartat){
 		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
 		if($query->num_rows() > 0){
 			$result = $query->result();
@@ -137,28 +137,16 @@ Class Respostes extends CI_Model{
 	}
 	
 	// TODO: fer getPercentatgeEtiqueta2 i getPercentatgeEtiqueta3 identics a l'anterior
+
 	
-	function guardarDefGuerra($def, $username, $sala, $apartat){
-		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
-		if($query->num_rows() > 0){
-			$result = $query->result();
-			$userid = $result[0]->id;
-			$data = array(
-				'salaid' => $sala,
-				'apartatid' => $apartat,
-				'userid' => $userid,
-				'respostatext' => $def
-			);
-			$this->db->insert('respostes', $data);
-		}
-	}
-	
-	function getUltimesDefinicionsGuerra($subapartat) {
-		$query = $this->db->query("SELECT * FROM respostes WHERE respostatext IS NOT NULL AND salaid = 1 AND apartatid = ".$subapartat." ORDER BY TIMESTAMP DESC LIMIT 3");
+	function getNomSo($sala, $apartat) {
+		// l'usuari amb userid = 0  s'acaba de convertir en el MASTER que té les respostes correctes :-)
+		$query = $this->db->query("SELECT respostatext FROM respostes WHERE userid = 0 AND salaid = ".$sala." AND apartatid = ".$apartat);
 		if ($query->num_rows() > 0) {
 			$result = $query->result();
-			return $result;
+			$str = $result[0]->respostatext;
 		}
+		return $str;
 	}
 }
 ?>
