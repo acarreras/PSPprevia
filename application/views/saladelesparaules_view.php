@@ -29,8 +29,8 @@
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/guardarEtiquetes", {etiqueta1 : $("#saladelesparaulesetiqueta1").val(), 
 			etiqueta2 : $("#saladelesparaulesetiqueta2").val(), etiqueta3 : $("#saladelesparaulesetiqueta3").val()})
 				.done(function(percentatges) {
-					// TODO: aquest resultat no s'està retornant però el POST el fa bé i guarda dades a BBDD
-					$("#res").html("resssssssssssssss");
+					// TODO: aquest resultat es retorna tot junt i molaria que fossin separats per a maquetar-ho millor (parsing?)
+					$("#resultatetiqueta3").html(percentatges);
 				});
 		});
 		
@@ -100,12 +100,13 @@
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($titolimatgealtres); ?></div>
 		<?php } ?>
+		
 		<!-- etiqueta -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
 		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.png'; ?>" />
-		<form>
 		<?php if ($bapartat2fet == false) {?>
+		<form>
 			<input id="saladelesparaulesetiqueta1" name="etiqueta1" type="radio"/>
 			<div class="contingutsetiqueta">entusiasme</div>
 			<div class="contingutsboxresposta" id="resultatetiqueta1"></div>
@@ -118,13 +119,14 @@
 			<div class="contingutsetiqueta">familiar</div>
 			<div class="contingutsboxresposta"  id="resultatetiqueta3"></div>
 			<input id="saladelesparaulesetiquetaok" type="button" value="ok"/>
+		</form>
 		<?php } else { ?>
 			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
 			<div class="contingutsboxresposta"><?php echo($etiquetapropia); ?></div>
 			<div class="contingutstexttitolresposta">Quins son els resultats globals?</div>
 			<div class="contingutsboxresposta"><?php echo($percentatgeetiqueta1); echo($percentatgeetiqueta2); echo($percentatgeetiqueta3); ?></div>
 		<?php } ?>
-		</form>
+		
 		<!-- defineix guerra -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
