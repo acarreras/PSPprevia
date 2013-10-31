@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>PSP biblioteca</title>
+	<title><?php echo($titol);?></title>
 	<style>
 		html { 
 			background: url(<?php echo base_url().'assets/images/fons/biblioteca-fonsnet.png'; ?>) no-repeat center center fixed; 
@@ -14,16 +14,37 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/styles/site.css'; ?>">
 </head>
 <body>
-	<!-- menú superior dreta-->
-	<div class="capcaleratitol">BIBLIOTECA</div>
+	<div id="res"></div>
+	<!-- menú superior dreta -->
+	<div class="capcaleratitol"><?php echo($titol);?></div>
 	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
 	<div class="capcalerabarra right">I</div>
 	<div class="capcalerausername right"><?php echo($username); ?></div>
 	<br/><br/>
 	<a class="capcalerahome right" href="home">^</a>
 	<div class="capcalerabarra right">I</div>
-	<a class="capcalerafletxa right" href="saladeldolorilafelicitat">></a>
-	<div class="capcalerabarra right">I</div>
-	<a class="capcalerafletxa right" href="saladeljo"><</a>
+	<?php if($salanext != NULL){ ?>
+		<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+		<div class="capcalerabarra right">I</div>
+	<?php } ?>
+	<?php if($salaprev != NULL){ ?>
+		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+		<div class="capcalerabarra right">I</div>
+	<?php } ?>
+	
+	<!-- continguts -->
+	<div class="contingutsbox">
+		<!-- dossiers pedagogics  -->
+		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
+		<div class="hr"><hr/></div>
+		
+		<!-- links -->
+		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
+		<div class="hr"><hr/></div>
+
+		<!-- credits -->
+		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
+		<div class="hr"><hr/></div>
+	</div>
 </body>
 </html>

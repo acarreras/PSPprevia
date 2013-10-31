@@ -58,7 +58,7 @@
   </script>
 </head>
 <body>
-<div id="res"><div>
+	<div id="res"></div>
 	<div class="capcaleratitol"><?php if($bapartat1fet == true){ echo 'true'; } else { echo 'false'; };?></div>
 	<div class="capcaleratitol"><?php if($bapartat2fet == true){ echo 'true'; } else { echo 'false'; };?></div>
 	<div class="capcaleratitol"><?php if($bapartat31fet == true){ echo 'true'; } else { echo 'false'; };?></div>
