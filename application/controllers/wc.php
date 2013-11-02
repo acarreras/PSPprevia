@@ -24,8 +24,7 @@
 			}
 			$data['titolapartat1'] = $this->apartats->getApartatTitol(18);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['bapartat1fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 3,1);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 3,1);
 			
 			$this->load->view('wc_view', $data);
 		}

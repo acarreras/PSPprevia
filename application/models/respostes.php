@@ -7,11 +7,10 @@ Class Respostes extends CI_Model{
 			$result = $query->result();
 			$userid = $result[0]->id;
 			
-			$query2 = $this->db->query("SELECT COUNT(1) FROM respostes WHERE userid = ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat);
+			$query2 = $this->db->query("SELECT COUNT(1) as number FROM respostes WHERE userid = ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat);
 			if($query2->num_rows() > 0){
 				$result2 = $query2->result();
-				// TODO: convertir això en número -> si és 0 no ha contestat si és 1 ja s'ha contestat
-				$num = $result2[0];
+				$num = $result2[0]->number;
 				if($num == 1){
 					return true;
 				}
@@ -105,39 +104,32 @@ Class Respostes extends CI_Model{
 			$userid = $result[0]->id;
 			
 			$query2 = $this->db->query("SELECT respostanumber FROM respostes WHERE userid = ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat);
+
 			if ($query2->num_rows() > 0) {
 				$result2 = $query2->result();
-				$str = $result2[0]->respostanum;
+				$str = $result2[0]->respostanumber;
 				// TODO: posar les etiquetes segons el  num
-				/*
-				if($str == 1){
+				if($str == 1) {
 					$str = "entusiasme";
-				}
-				else if($str == 2){
+				} else if($str == 2) {
 					$str = "amistat";
-				}
-				else if($str == 3){
+				} else if($str == 3) {
 					$str = "familiar";
 				}
-				*/
 			}
 		}
 		return $str;
 	}
 	
-	function getPercentatgeEtiqueta1(){
-		$query = $this->db->query("SELECT COUNT(1) FROM respostes WHERE respostanumber = 1");
+	function getPercentatgeEtiqueta($number){
+		$query = $this->db->query("SELECT COUNT(1) as number FROM respostes WHERE respostanumber = ".$number);
 		$num = 0;
 		if($query->num_rows() > 0){
 			$result = $query->result();
-			// TODO: convertir això en número
-			$num = $result[0];
+			$num = $result[0]->number;
 		}
 		return $num;
 	}
-	
-	// TODO: fer getPercentatgeEtiqueta2 i getPercentatgeEtiqueta3 identics a l'anterior
-
 	
 	function getNomSo($sala, $apartat) {
 		// l'usuari amb userid = 0  s'acaba de convertir en el MASTER que té les respostes correctes :-)

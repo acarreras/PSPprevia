@@ -25,9 +25,8 @@
 			$data['titolapartat1'] = $this->apartats->getApartatTitol(11);
 			$data['titolapartat2'] = $this->apartats->getApartatTitol(12);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['bapartat1fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 3,1);
-			$data['bapartat2fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 3,2);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 3,1);
+			$data['bapartat2fet'] = $this->respostes->bapartatJaFet($session_data['username'], 3,2);
 			
 			$data['lemapropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 3,2);
 			$data['lemaaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 3,2);

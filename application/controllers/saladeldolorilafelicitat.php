@@ -26,9 +26,8 @@
 			$data['titolapartat1'] = $this->apartats->getApartatTitol(16);
 			$data['titolapartat2'] = $this->apartats->getApartatTitol(17);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['bapartat1fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 6,1);
-			$data['bapartat2fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 6,2);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 6,1);
+			$data['bapartat2fet'] = $this->respostes->bapartatJaFet($session_data['username'], 6,2);
 			
 			$this->load->view('saladeldolorilafelicitat_view', $data);
 		}

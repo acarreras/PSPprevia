@@ -26,10 +26,9 @@
 			$data['titolapartat2'] = $this->apartats->getApartatTitol(9);
 			$data['titolapartat3'] = $this->apartats->getApartatTitol(10);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['bapartat1fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 4,1);
-			$data['bapartat2fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 4,2);
-			$data['bapartat3fet'] = true;//$this->respostes->bapartatJaFet($session_data['username'], 4,3);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 4,1);
+			$data['bapartat2fet'] = $this->respostes->bapartatJaFet($session_data['username'], 4,2);
+			$data['bapartat3fet'] = $this->respostes->bapartatJaFet($session_data['username'], 4,3);
 			
 			$data['perquegraffitipropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 4,2);
 			$data['perquegraffitialtres'] = $this->respostes->getAltresRespostaText($session_data['username'], 4,2);
