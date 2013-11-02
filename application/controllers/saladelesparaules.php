@@ -26,21 +26,19 @@
 			$data['titolapartat2'] = $this->apartats->getApartatTitol(2);
 			$data['titolapartat3'] = $this->apartats->getApartatTitol(3);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['bapartat1fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 1,1);
-			$data['bapartat2fet'] = false;//$this->respostes->bapartatJaFet($session_data['username'], 1,2);
-			$data['bapartat31fet'] = true;//$this->respostes->bapartatJaFet($session_data['username'], 1,31);
-			$data['bapartat32fet'] = true;//$this->respostes->bapartatJaFet($session_data['username'], 1,32);
-			$data['bapartat33fet'] = true;//$this->respostes->bapartatJaFet($session_data['username'], 1,33);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 1,1);
+			$data['bapartat2fet'] = $this->respostes->bapartatJaFet($session_data['username'], 1,2);
+			$data['bapartat31fet'] = $this->respostes->bapartatJaFet($session_data['username'], 1,31);
+			$data['bapartat32fet'] = $this->respostes->bapartatJaFet($session_data['username'], 1,32);
+			$data['bapartat33fet'] = $this->respostes->bapartatJaFet($session_data['username'], 1,33);
 			
 			$data['titolimatgepropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 1,1);
 			$data['titolimatgealtres'] = $this->respostes->getAltresRespostaText($session_data['username'], 1,1);
 			
-			// TODO: no sé comptar amb querys :-(
-			$data['etiquetapropia'] = "no m'aclaro";//$this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 1,2);
-			$data['percentatgeetiqueta1'] = 50;//$this->respostes->getPercentatgeEtiqueta1();
-			$data['percentatgeetiqueta2'] = 30;//$this->respostes->getPercentatgeEtiqueta2();
-			$data['percentatgeetiqueta3'] = 20;//$this->respostes->getPercentatgeEtiqueta3();
+			$data['etiquetapropia'] = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 1,2);
+			$data['percentatgeetiqueta1'] = $this->respostes->getPercentatgeEtiqueta(1);
+			$data['percentatgeetiqueta2'] = $this->respostes->getPercentatgeEtiqueta(2);
+			$data['percentatgeetiqueta3'] = $this->respostes->getPercentatgeEtiqueta(3);
 			
 			$data['defguerra1propi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 1,31);
 			$data['defguerra1altres'] = $this->respostes->getAltresRespostaText($session_data['username'], 1,31);
@@ -79,9 +77,9 @@
 		
 		$str = '';
 		// TODO: implementar aquests querys i fer l'string de resultats
-		//$results = $this->respostes->getPercentatgeEtiqueta1();
-		//$results = $this->respostes->getPercentatgeEtiqueta2();
-		//$results = $this->respostes->getPercentatgeEtiqueta3();
+		$results = $this->respostes->getPercentatgeEtiqueta(1);
+		$results = $this->respostes->getPercentatgeEtiqueta(2);
+		$results = $this->respostes->getPercentatgeEtiqueta(3);
 		
 		$this->respostes->guardarEtiquetes($this->input->post('etiqueta1'), $this->input->post('etiqueta2'), $this->input->post('etiqueta3'), $session_data['username'], 1, 2);
 		
