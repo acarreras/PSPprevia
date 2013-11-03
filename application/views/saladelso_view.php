@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/styles/site.css'; ?>">
 	<!--Load JQUERY from Google's network -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="<?php echo base_url().'js/ajaxfileupload.js'; ?>"></script>
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
@@ -46,17 +47,55 @@
 				});
 		});
 		
+		$("#saladelsotitula5ok").click(function () {
+			$.post("<?php echo base_url()?>index.php/saladelso/guardarTitolSo5", {titol : $("#saladelsotitula5").val()})
+				.done(function(resultat5) {
+					$("#resultattitolso5").html(resultat5);
+				});
+		});
+		
+		$("#saladelsotitula6ok").click(function () {
+			$.post("<?php echo base_url()?>index.php/saladelso/guardarTitolSo6", {titol : $("#saladelsotitula6").val()})
+				.done(function(resultat6) {
+					$("#resultattitolso6").html(resultat6);
+				});
+		});
+		
 		$("#saladelsobandasonoraok").click(function () {
 			$.post("<?php echo base_url()?>index.php/saladelso/guardarBandaSonora", {titol : $("#saladelsobandasonora").val()})
 				.done(function(banda) {
 					$("#resultatbandasonora").html(banda);
 				});
 		});
+		
+		$('#saladelsotranquilitatok').click(function(e) {
+			e.preventDefault();
+			$.ajaxFileUpload({
+				url         :'<?php echo base_url()?>index.php/saladelso/uploadFileSo', 
+				secureuri      :false,
+				fileElementId  :'userfile',
+				dataType    : 'json',
+				data        : {
+					'title'           : $('#title').val()
+				},
+				success  : function (data, status){
+					if(data.status == 'error'){
+						$('#filenametranquilitat').html("Error loading data");
+					}
+					else if(data.status == 'success'){
+						// TODO: retornar el filename
+						$('#filenametranquilitat').html("File uploded ok but not saved to BBDD");
+					}
+					alert(data.msg);
+				}
+			});
+			return false;
+			});
+
 	});
   </script>
 </head>
 <body>
-<div id="res"><div>
 	<!-- menú superior dreta -->
 	<div class="capcaleratitol"><?php echo($titol);?></div>
 	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
@@ -73,7 +112,6 @@
 		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
 		<div class="capcalerabarra right">I</div>
 	<?php } ?>
-	
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- titula sons -->
@@ -81,9 +119,9 @@
 		<div class="hr"><hr/></div>
 		<!-- so 1 -->
 		<audio controls>
-			<source src="audio/petard.mp3" type="audio/mpeg">
-			<source src="audio/petard.ogg" type="audio/ogg">
-			<embed height="50" width="100" src="audio/petard.mp3">
+			<source src="<?php echo base_url().'assets/audio/01_Bomba.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/01_Bomba.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/01_Bomba.mp3'; ?>">
 		</audio>
 		<?php if ($bapartat11fet == false) {?>
 			<form>
@@ -95,12 +133,11 @@
 			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso1propi); ?></div>
 			<div class="contingutsboxresposta">Què es? <?php echo($titolso1resposta); ?></div>
 		<?php } ?>
-		
 		<!-- so 2 -->
 		<audio controls>
-			<source src="audio/petard.mp3" type="audio/mpeg">
-			<source src="audio/petard.ogg" type="audio/ogg">
-			<embed height="50" width="100" src="audio/petard.mp3">
+			<source src="<?php echo base_url().'assets/audio/02_Petard.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/02_Petard.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/02_Petard.mp3'; ?>">
 		</audio>
 		<?php if ($bapartat12fet == false) {?>
 			<form>
@@ -112,12 +149,11 @@
 			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso2propi); ?></div>
 			<div class="contingutsboxresposta">Què es? <?php echo($titolso2resposta); ?></div>
 		<?php } ?>
-		
 		<!-- so 3 -->
 		<audio controls>
-			<source src="audio/petard.mp3" type="audio/mpeg">
-			<source src="audio/petard.ogg" type="audio/ogg">
-			<embed height="50" width="100" src="audio/petard.mp3">
+			<source src="<?php echo base_url().'assets/audio/03_Tro.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/03_Tro.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/03_Tro.mp3'; ?>">
 		</audio>
 		<?php if ($bapartat13fet == false) {?>
 			<form>
@@ -129,12 +165,11 @@
 			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso3propi); ?></div>
 			<div class="contingutsboxresposta">Què es? <?php echo($titolso3resposta); ?></div>
 		<?php } ?>
-		
 		<!-- so 4 -->
 		<audio controls>
-			<source src="audio/petard.mp3" type="audio/mpeg">
-			<source src="audio/petard.ogg" type="audio/ogg">
-			<embed height="50" width="100" src="audio/petard.mp3">
+			<source src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/04_Escopeta.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>">
 		</audio>
 		<?php if ($bapartat14fet == false) {?>
 			<form>
@@ -146,11 +181,47 @@
 			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso4propi); ?></div>
 			<div class="contingutsboxresposta">Què es? <?php echo($titolso4resposta); ?></div>
 		<?php } ?>
-		
+		<!-- so 5 -->
+		<audio controls>
+			<source src="<?php echo base_url().'assets/audio/05_Globo.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/05_Globo.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/05_Globo.mp3'; ?>">
+		</audio>
+		<?php if ($bapartat15fet == false) {?>
+			<form>
+				<input type="text" class="contingutstextform50percent" id="saladelsotitula5" name="saladelsotitula5"/>
+				<input id="saladelsotitula5ok" type="button" value="ok"/>
+			</form>
+				<div class="contingutsboxresposta" id="resultattitolso5"></div>
+		<?php } else { ?>
+			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso5propi); ?></div>
+			<div class="contingutsboxresposta">Què es? <?php echo($titolso5resposta); ?></div>
+		<?php } ?>
+		<!-- so 6 -->
+		<audio controls>
+			<source src="<?php echo base_url().'assets/audio/06_Roda.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/06_Roda.ogg'; ?>" type="audio/ogg">
+			<embed height="50" width="100" src="<?php echo base_url().'assets/audio/06_Roda.mp3'; ?>">
+		</audio>
+		<?php if ($bapartat16fet == false) {?>
+			<form>
+				<input type="text" class="contingutstextform50percent" id="saladelsotitula6" name="saladelsotitula6"/>
+				<input id="saladelsotitula6ok" type="button" value="ok"/>
+			</form>
+				<div class="contingutsboxresposta" id="resultattitolso6"></div>
+		<?php } else { ?>
+			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso6propi); ?></div>
+			<div class="contingutsboxresposta">Què es? <?php echo($titolso6resposta); ?></div>
+		<?php } ?>
 		<!-- grava tranquilitat i perill -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
-		
+		<div class="contingutstitol">. Que representi TRANQUILITAT</div>
+		<form>
+			<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+			<input id="saladelsotranquilitatok" type="button" value="ok"/>
+		</form>
+		<div class="contingutsboxresposta" id="filenametranquilitat"></div>
 		<!-- deixa en silenci -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>

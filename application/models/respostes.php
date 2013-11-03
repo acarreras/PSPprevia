@@ -150,6 +150,24 @@ Class Respostes extends CI_Model{
 		}
 		return $str;
 	}
+	
+	public function guardaFilename($filename, $username, $sala, $apartat)
+	{
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			$data = array(
+				'salaid' => $sala,
+				'apartatid' => $apartat,
+				'userid' => $userid,
+				'respostafitxer' => $filename
+			);
+			// TODO: aqest insert no funciona perque el filename no esta be 
+			// i fa petar la saladelso.php linia 140 que llavors no retorna resposta json
+			//$this->db->insert('respostes', $data);
+		}
+	}
 }
 ?>
 

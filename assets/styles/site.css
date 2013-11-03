@@ -338,3 +338,8 @@ input.contingutstextform100percent:focus{
 	text-align:left;
 	float:left;
 }
+
+.choosefileboto{
+    font-family: 'TomatoThin', serif; font-size:80%; color:rgb(0,0,0); text-decoration: none;
+	text-align:left;
+}
