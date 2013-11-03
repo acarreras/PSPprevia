@@ -77,15 +77,25 @@ Class Respostes extends CI_Model{
 		return $str;
 	}
 	
-	function guardarEtiquetes($etiqueta1, $etiqueta2, $etiqueta3, $username, $sala, $apartat){
+	function guardarEtiquetes($valor, $username, $sala, $apartat){
 		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
 		if($query->num_rows() > 0){
 			$result = $query->result();
 			$userid = $result[0]->id;
 			
-			// TODO: aquest valor ha de ser en funció de l'etiqueta, la primera es guarda un 1, la segona 2 i la tercera 3
-			$num = 342;
-			
+			// primera etiqueta té valor 1, la segona 2 i la tercera 3
+			if($valor == 1){
+				$num = 1;
+			}
+			else if($valor == 2){
+				$num = 2;
+			}
+			else if($valor == 3){
+				$num = 3;
+			}
+			else{
+				$num = 123456789;
+			}
 			$data = array(
 				'salaid' => $sala,
 				'apartatid' => $apartat,

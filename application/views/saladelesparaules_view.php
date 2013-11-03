@@ -26,12 +26,21 @@
 		});
 		
 		$("#saladelesparaulesetiquetaok").click(function () {
-			$.post("<?php echo base_url()?>index.php/saladelesparaules/guardarEtiquetes", {etiqueta1 : $("#saladelesparaulesetiqueta1").val(), 
-			etiqueta2 : $("#saladelesparaulesetiqueta2").val(), etiqueta3 : $("#saladelesparaulesetiqueta3").val()})
-				.done(function(percentatges) {
-					// TODO: aquest resultat es retorna tot junt i molaria que fossin separats per a maquetar-ho millor (parsing?)
-					$("#resultatetiqueta3").html(percentatges);
+			$.post("<?php echo base_url()?>index.php/saladelesparaules/guardarEtiquetes", {valor : $("input[name=etiqueta]:checked", "#formetiquetes").val()})
+			
+			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta1", {})
+				.done(function(percentatge1) {
+					$("#resultatetiqueta1").html(percentatge1);
 				});
+			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta2", {})
+				.done(function(percentatge2) {
+					$("#resultatetiqueta2").html(percentatge2);
+				});
+			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta3", {})
+				.done(function(percentatge3) {
+					$("#resultatetiqueta3").html(percentatge3);
+				});
+			
 		});
 		
 		$("#saladelesparaulesdefguerra1ok").click(function () {
@@ -58,12 +67,6 @@
   </script>
 </head>
 <body>
-	<div id="res"></div>
-	<div class="capcaleratitol"><?php if($bapartat1fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat2fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat31fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat32fet == true){ echo 'true'; } else { echo 'false'; };?></div>
-	<div class="capcaleratitol"><?php if($bapartat33fet == true){ echo 'true'; } else { echo 'false'; };?></div>
 	<!-- menú superior dreta -->
 	<div class="capcaleratitol"><?php echo($titol);?></div>
 	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
@@ -80,7 +83,6 @@
 		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
 		<div class="capcalerabarra right">I</div>
 	<?php } ?>
-	
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- titula -->
@@ -100,22 +102,19 @@
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($titolimatgealtres); ?></div>
 		<?php } ?>
-		
 		<!-- etiqueta -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
 		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.png'; ?>" />
 		<?php if ($bapartat2fet == false) {?>
-		<form>
-			<input id="saladelesparaulesetiqueta1" name="etiqueta1" type="radio"/>
+		<form id="formetiquetes">
+			<input id="saladelesparaulesetiqueta1" name="etiqueta" type="radio" value="1"/>
 			<div class="contingutsetiqueta">entusiasme</div>
 			<div class="contingutsboxresposta" id="resultatetiqueta1"></div>
-			
-			<input id="saladelesparaulesetiqueta2" name="etiqueta2" type="radio"/>
+			<input id="saladelesparaulesetiqueta2" name="etiqueta" type="radio" value="2"/>
 			<div class="contingutsetiqueta">amistat</div>
 			<div class="contingutsboxresposta" id="resultatetiqueta2"></div>
-			
-			<input id="saladelesparaulesetiqueta3" name="etiqueta3" type="radio"/>
+			<input id="saladelesparaulesetiqueta3" name="etiqueta" type="radio" value="3"/>
 			<div class="contingutsetiqueta">familiar</div>
 			<div class="contingutsboxresposta"  id="resultatetiqueta3"></div>
 			<input id="saladelesparaulesetiquetaok" type="button" value="ok"/>
@@ -124,9 +123,11 @@
 			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
 			<div class="contingutsboxresposta"><?php echo($etiquetapropia); ?></div>
 			<div class="contingutstexttitolresposta">Quins son els resultats globals?</div>
-			<div class="contingutsboxresposta"><?php echo($percentatgeetiqueta1); echo($percentatgeetiqueta2); echo($percentatgeetiqueta3); ?></div>
+			<div class="contingutsboxresposta">
+				totals d'entusiasme: <?php echo($percentatgeetiqueta1); ?><br/>
+				totals d'amistat: <?php echo($percentatgeetiqueta2);  ?><br/>
+				totals de familiar: <?php echo($percentatgeetiqueta3); ?></div>
 		<?php } ?>
-		
 		<!-- defineix guerra -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
@@ -144,7 +145,6 @@
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra1altres); ?></div>
 		<?php } ?>
-		
 		<?php if ($bapartat32fet == false) {?>
 			<div class="contingutstitol">. Amb paraules tècniques o científiques</div>
 			<form>
@@ -159,7 +159,6 @@
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra2altres); ?></div>
 		<?php } ?>
-		
 		<?php if ($bapartat33fet == false) {?>
 			<div class="contingutstitol">. Amb paraules que pugui entendre un nen petit</div>
 			<form>
@@ -174,7 +173,6 @@
 			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra3altres); ?></div>
 		<?php } ?>
-
 	</div>
 </body>
 </html>

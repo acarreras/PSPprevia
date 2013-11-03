@@ -74,17 +74,29 @@
 	
 	function guardarEtiquetes(){
 		$session_data = $this->session->userdata('logged_in');
-		
+		$this->respostes->guardarEtiquetes($this->input->post('valor'), $session_data['username'], 1, 2);
+		$str = "valor ()1,2 o 3: ". $this->input->post('valor');
+		echo $str;
+	}
+	
+	function percentatgeEtiqueta1(){
 		$str = '';
-		// TODO: fer l'string de resultats
 		$results = $this->respostes->getPercentatgeEtiqueta(1);
+		$str .= $results;
+		echo $str;
+	}
+	
+	function percentatgeEtiqueta2(){
+		$str = '';
 		$results = $this->respostes->getPercentatgeEtiqueta(2);
+		$str .= $results;
+		echo $str;
+	}
+	
+	function percentatgeEtiqueta3(){
+		$str = '';
 		$results = $this->respostes->getPercentatgeEtiqueta(3);
-		
-		$this->respostes->guardarEtiquetes($this->input->post('etiqueta1'), $this->input->post('etiqueta2'), $this->input->post('etiqueta3'), $session_data['username'], 1, 2);
-		
-		// TODO: retornar l'string que toca i que hem fet a dalt
-		$str = "percenttges testtttttttt!!";
+		$str .= $results;
 		echo $str;
 	}
 	
