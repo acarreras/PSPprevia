@@ -77,6 +77,22 @@ Class Respostes extends CI_Model{
 		return $str;
 	}
 	
+	function getAltresRespostaFitxerUltim($username, $sala, $apartat){
+		$str = '';
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			
+			$query2 = $this->db->query("SELECT * FROM respostes WHERE respostatext IS NOT NULL AND userid != ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat." ORDER BY TIMESTAMP DESC LIMIT 1");
+			if ($query2->num_rows() > 0) {
+				$result2 = $query2->result();
+				$str = $result2[0]->respostafitxer;
+			}
+		}
+		return $str;
+	}
+	
 	function guardarEtiquetes($valor, $username, $sala, $apartat){
 		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
 		if($query->num_rows() > 0){
@@ -151,8 +167,7 @@ Class Respostes extends CI_Model{
 		return $str;
 	}
 	
-	public function guardaFilename($filename, $username, $sala, $apartat)
-	{
+	function guardaFilename($filename, $username, $sala, $apartat){
 		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
 		if($query->num_rows() > 0){
 			$result = $query->result();
@@ -163,10 +178,24 @@ Class Respostes extends CI_Model{
 				'userid' => $userid,
 				'respostafitxer' => $filename
 			);
-			// TODO: aqest insert no funciona perque el filename no esta be 
-			// i fa petar la saladelso.php linia 140 que llavors no retorna resposta json
-			//$this->db->insert('respostes', $data);
+			$this->db->insert('respostes', $data);
 		}
+	}
+	
+	function getLaMevaRespostaFitxer($username, $sala, $apartat) {
+		$str = '';
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			
+			$query2 = $this->db->query("SELECT respostafitxer FROM respostes WHERE userid = ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat);
+			if ($query2->num_rows() > 0) {
+				$result2 = $query2->result();
+				$str = $result2[0]->respostafitxer;
+			}
+		}
+		return $str;
 	}
 }
 ?>

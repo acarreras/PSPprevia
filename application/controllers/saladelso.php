@@ -52,6 +52,11 @@
 			$data['titolso6propi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,16);
 			$data['titolso6resposta'] = $this->respostes->getNomSo(2,16);
 			
+			$data['sotranquilitatpropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,211);
+			$data['sotranquilitatpropifilename'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 2,21);
+			$data['soperillpropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,221);
+			$data['soperillpropifilename'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 2,22);
+			
 			$data['bandasonorapropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,4);
 			$data['bandasonoraaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 2,4);
 						
@@ -118,11 +123,14 @@
 		echo $result;
 	}
 	
-	public function uploadFileSo(){
+	public function uploadFileSo1(){
+		$session_data = $this->session->userdata('logged_in');
+		
 		$status = "";
 		$msg = "";
 		$file_element_name = 'userfile';
-
+		$filename = "";
+		$origname = "";
 
 		$config['upload_path'] = './files/';
 		$config['allowed_types'] = 'ogg|mp3';
@@ -132,17 +140,68 @@
 		$this->load->library('upload', $config);
 
 		if (!$this->upload->do_upload($file_element_name)){
-			$status = 'error';
+			$status = "error";
 			$msg = $this->upload->display_errors('', '');
 		}
 		else{
 			$data = $this->upload->data();
-			//$this->respostes->guardaFilename($data['file_name'], $session_data['username'], 2, 21);
+			$filename = $data['file_name']; // ok
+			$origname  = $data['orig_name'];
 			$status = "success";
-			$msg = "file successfully uploaded"; 
+			$msg = "file successfully uploaded";
+			$this->respostes->guardarText($origname, $session_data['username'], 2, 211);
+			$this->respostes->guardaFilename($filename, $session_data['username'], 2, 21);
 		}
 		@unlink($_FILES[$file_element_name]);
-		echo json_encode(array('status' => $status, 'msg' => $msg));
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname));
+	}
+	
+	public function uploadFileSo2(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		$status = "";
+		$msg = "";
+		$file_element_name = 'userfile';
+		$filename = "";
+		$origname = "";
+
+		$config['upload_path'] = './files/';
+		$config['allowed_types'] = 'ogg|mp3';
+		$config['max_size']  = 1024 * 8;
+		$config['encrypt_name'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($file_element_name)){
+			$status = "error";
+			$msg = $this->upload->display_errors('', '');
+		}
+		else{
+			$data = $this->upload->data();
+			$filename = $data['file_name']; // ok
+			$origname  = $data['orig_name'];
+			$status = "success";
+			$msg = "file successfully uploaded";
+			$this->respostes->guardarText($origname, $session_data['username'], 2, 221);
+			$this->respostes->guardaFilename($filename, $session_data['username'], 2, 22);
+		}
+		@unlink($_FILES[$file_element_name]);
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname));
+	}
+	
+	function guardarBandaSonora(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		$results = $this->respostes->getUltimsTexts(2,4);
+		$str = '';
+		foreach ($results as  $row) {
+			$str .= $row->respostatext;
+			$str .= "<br/>";
+		}
+		
+		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 2, 4);
+		
+		echo $str;
 	}
 }
 ?>

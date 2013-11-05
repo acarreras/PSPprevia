@@ -14,13 +14,35 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/styles/site.css'; ?>">
 	<!--Load JQUERY from Google's network -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="<?php echo base_url().'js/ajaxfileupload.js'; ?>"></script>
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
-		// set an on click on the button per a guardar el titol que hem posat a la imatge
+		$('#saladeljoautoretratok').click(function(e) {
+			e.preventDefault();
+			$.ajaxFileUpload({
+				url         :'<?php echo base_url()?>index.php/saladeljo/uploadFileAutorretrat', 
+				secureuri      :false,
+				fileElementId  :'userfile',
+				dataType    : 'json',
+				data        : {
+					'title'           : $('#title').val()
+				},
+				success  : function (data, status){
+					if(data.status == 'error'){
+						$('#filenameautorretrat').html("Error guardant el so: torna-ho a provar. " + data.msg);
+					}
+					else if(data.status == 'success'){
+						// TODO: no mostra la imatge, surt un link trencat
+						$('#autorretratimatge').html('<img src="data:image/png;base64,' + data.path + '" />');
+						$('#filenameautorretrat').html("El teu autoretrat " + data.filename + " s'ha guardat correctament");
+					}
+				}
+			});
+			return false;
+		});
+		
 		$("#saladeljolemaok").click(function () {
-			alert('dins el jquery de saladeljolemaok');
-			// TODO: el boto entra aqui pero no fa be el post :-O (copy paste tota la pagina de saladelesparaules)
 			$.post("<?php echo base_url()?>index.php/saladeljo/guardarLema", {titol : $("#saladeljolema").val()})
 				.done(function(resultat) {
 					$("#resultatlema").html(resultat);
@@ -54,9 +76,17 @@
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat1fet == false) { ?>
-			
+			<form>
+				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+				<input id="saladeljoautoretratok" type="button" value="ok"/>
+				<div class="contingutsimatge60percent" id="autorretratimatge"></div>
+				<div class="contingutsboxresposta" id="filenameautorretrat"></div>
+			</form>
 		<?php } else { ?>
-			
+			<img class="contingutsimatge50percent" src="<?php echo base_url().'/files/'.$autoretratpropi; ?>" />
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat1; ?>" />
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat2; ?>" />
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat3; ?>" />
 		<?php } ?>
 		
 		<!-- lema -->

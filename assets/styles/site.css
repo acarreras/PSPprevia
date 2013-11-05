@@ -274,6 +274,25 @@ div.hr hr{
 	float:left;
 }
 
+.contingutsimatge60percent{
+    position:relative;
+	left:0px;
+	margin-top:2%;
+	margin-bottom:5%;
+	margin-right:5%;
+	width:50%;
+	float:left;
+}
+
+.contingutsimatge30percent{
+    position:relative;
+	left:0px;
+	margin-top:2%;
+	margin-bottom:5%;
+	margin-right:5%;
+	width:20%;
+	float:left;
+}
 input.contingutstextform50percent{
 	position:relative;
 	width:40%;

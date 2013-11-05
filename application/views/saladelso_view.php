@@ -71,7 +71,7 @@
 		$('#saladelsotranquilitatok').click(function(e) {
 			e.preventDefault();
 			$.ajaxFileUpload({
-				url         :'<?php echo base_url()?>index.php/saladelso/uploadFileSo', 
+				url         :'<?php echo base_url()?>index.php/saladelso/uploadFileSo1', 
 				secureuri      :false,
 				fileElementId  :'userfile',
 				dataType    : 'json',
@@ -80,17 +80,37 @@
 				},
 				success  : function (data, status){
 					if(data.status == 'error'){
-						$('#filenametranquilitat').html("Error loading data");
+						$('#filenametranquilitat').html("Error guardant el so: torna-ho a provar");
 					}
 					else if(data.status == 'success'){
-						// TODO: retornar el filename
-						$('#filenametranquilitat').html("File uploded ok but not saved to BBDD");
+						$('#filenametranquilitat').html("So " + data.filename + " guardat correctament");
 					}
-					alert(data.msg);
 				}
 			});
 			return false;
+		});
+		
+		$('#saladelsoperillok').click(function(e) {
+			e.preventDefault();
+			$.ajaxFileUpload({
+				url         :'<?php echo base_url()?>index.php/saladelso/uploadFileSo2', 
+				secureuri      :false,
+				fileElementId  :'userfile',
+				dataType    : 'json',
+				data        : {
+					'title'           : $('#title').val()
+				},
+				success  : function (data, status){
+					if(data.status == 'error'){
+						$('#filenameperill').html("Error guardant el so: torna-ho a provar. " + data.msg);
+					}
+					else if(data.status == 'success'){
+						$('#filenameperill').html("So " + data.filename + " guardat correctament");
+					}
+				}
 			});
+			return false;
+		});
 
 	});
   </script>
@@ -217,11 +237,35 @@
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
 		<div class="contingutstitol">. Que representi TRANQUILITAT</div>
-		<form>
-			<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
-			<input id="saladelsotranquilitatok" type="button" value="ok"/>
-		</form>
-		<div class="contingutsboxresposta" id="filenametranquilitat"></div>
+		<?php if ($bapartat21fet == false) {?>
+			<form>
+				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+				<input id="saladelsotranquilitatok" type="button" value="ok"/>
+			</form>
+			<div class="contingutsboxresposta" id="filenametranquilitat"></div>
+		<?php } else { ?>
+			<div class="contingutsboxresposta">Vas pujar el so <?php echo($sotranquilitatpropi); ?>. Escolta la tranquilitat</div>
+			<audio controls>
+				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/mpeg">
+				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/ogg">
+				<embed height="50" width="100" src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>">
+			</audio>
+		<?php } ?>
+		<div class="contingutstitol">. Que representi PERILL</div>
+		<?php if ($bapartat22fet == false) {?>
+			<form>
+				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+				<input id="saladelsoperillok" type="button" value="ok"/>
+			</form>
+			<div class="contingutsboxresposta" id="filenameperill"></div>
+		<?php } else { ?>
+			<div class="contingutsboxresposta">Vas pujar el so <?php echo($soperillpropi); ?>. Fes play al perill</div>
+			<audio controls>
+				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/mpeg">
+				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/ogg">
+				<embed height="50" width="100" src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>">
+			</audio>
+		<?php } ?>
 		<!-- deixa en silenci -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>

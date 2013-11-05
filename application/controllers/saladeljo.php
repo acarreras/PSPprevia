@@ -31,6 +31,12 @@
 			$data['lemapropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 3,2);
 			$data['lemaaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 3,2);
 			
+			$data['autoretratpropi'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 3,1);
+			// TODO:  aconseguir que aquestes tres variables funcionin
+			$data['autoretrat1'] = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 3,1);
+			//$data['autoretrat2'] = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 3,1);
+			//$data['autoretrat3'] = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 3,1);
+			
 			$this->load->view('saladeljo_view', $data);
 		}
 		else
@@ -54,6 +60,41 @@
 		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 3,2);
 		
 		echo $str;
+	}
+	
+	public function uploadFileAutorretrat(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		$status = "";
+		$msg = "";
+		$file_element_name = 'userfile';
+		$filename = "";
+		$origname = "";
+		$path = "";
+
+		$config['upload_path'] = './files/';
+		$config['allowed_types'] = 'jpg|gif|png';
+		$config['max_size']  = 1024 * 10;
+		$config['encrypt_name'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($file_element_name)){
+			$status = "error";
+			$msg = $this->upload->display_errors('', '');
+		}
+		else{
+			$data = $this->upload->data();
+			$filename = $data['file_name']; // ok
+			$origname = $data['orig_name'];
+			$path = $data['full_path'];
+			$status = "success";
+			$msg = "file successfully uploaded";
+			$this->respostes->guardarText($origname, $session_data['username'], 3, 11);
+			$this->respostes->guardaFilename($filename, $session_data['username'], 3, 1);
+		}
+		@unlink($_FILES[$file_element_name]);
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $path));
 	}
 }
 ?>
