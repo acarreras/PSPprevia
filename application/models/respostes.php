@@ -84,10 +84,42 @@ Class Respostes extends CI_Model{
 			$result = $query->result();
 			$userid = $result[0]->id;
 			
-			$query2 = $this->db->query("SELECT * FROM respostes WHERE respostatext IS NOT NULL AND userid != ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat." ORDER BY TIMESTAMP DESC LIMIT 1");
+			$query2 = $this->db->query("SELECT * FROM respostes WHERE respostafitxer IS NOT NULL AND userid != ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat." ORDER BY TIMESTAMP DESC LIMIT 1");
 			if ($query2->num_rows() > 0) {
 				$result2 = $query2->result();
 				$str = $result2[0]->respostafitxer;
+			}
+		}
+		return $str;
+	}
+	
+	function getAltresRespostaFitxerPenultim($username, $sala, $apartat){
+		$str = '';
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			
+			$query2 = $this->db->query("SELECT * FROM respostes WHERE respostafitxer IS NOT NULL AND userid != ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat." ORDER BY TIMESTAMP DESC LIMIT 2");
+			if ($query2->num_rows() > 1) {
+				$result2 = $query2->result();
+				$str = $result2[1]->respostafitxer;
+			}
+		}
+		return $str;
+	}
+	
+	function getAltresRespostaFitxerAvantPenultim($username, $sala, $apartat){
+		$str = '';
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			
+			$query2 = $this->db->query("SELECT * FROM respostes WHERE respostafitxer IS NOT NULL AND userid != ".$userid." AND salaid = ".$sala." AND apartatid = ".$apartat." ORDER BY TIMESTAMP DESC LIMIT 3");
+			if ($query2->num_rows() > 2) {
+				$result2 = $query2->result();
+				$str = $result2[2]->respostafitxer;
 			}
 		}
 		return $str;

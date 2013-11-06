@@ -33,8 +33,7 @@
 						$('#filenameautorretrat').html("Error guardant el so: torna-ho a provar. " + data.msg);
 					}
 					else if(data.status == 'success'){
-						// TODO: no mostra la imatge, surt un link trencat
-						$('#autorretratimatge').html('<img src="data:image/png;base64,' + data.path + '" />');
+						$('#autorretratimatge').attr('src', '<?php echo base_url()?>files/' + data.path);
 						$('#filenameautorretrat').html("El teu autoretrat " + data.filename + " s'ha guardat correctament");
 					}
 				}
@@ -79,14 +78,16 @@
 			<form>
 				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
 				<input id="saladeljoautoretratok" type="button" value="ok"/>
-				<div class="contingutsimatge60percent" id="autorretratimatge"></div>
+				<img class="contingutsimatge60percent" id="autorretratimatge" src=""/>
 				<div class="contingutsboxresposta" id="filenameautorretrat"></div>
 			</form>
 		<?php } else { ?>
-			<img class="contingutsimatge50percent" src="<?php echo base_url().'/files/'.$autoretratpropi; ?>" />
-			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat1; ?>" />
-			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat2; ?>" />
-			<img class="contingutsimatge30percent" src="<?php echo base_url().'/files/'.$autoretrat3; ?>" />
+			<div class="contingutstexttitolresposta">El teu autorretrat</div>
+			<img class="contingutsimatge50percent" src="<?php echo base_url().'files/'.$autoretratpropi; ?>" />
+			<div class="contingutstexttitolresposta">Els tres últims autorretrats</div>
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$autoretrat1; ?>" />
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$autoretrat2; ?>" />
+			<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$autoretrat3; ?>" />
 		<?php } ?>
 		
 		<!-- lema -->

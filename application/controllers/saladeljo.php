@@ -32,10 +32,9 @@
 			$data['lemaaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 3,2);
 			
 			$data['autoretratpropi'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 3,1);
-			// TODO:  aconseguir que aquestes tres variables funcionin
 			$data['autoretrat1'] = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 3,1);
-			//$data['autoretrat2'] = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 3,1);
-			//$data['autoretrat3'] = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 3,1);
+			$data['autoretrat2'] = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 3,1);
+			$data['autoretrat3'] = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 3,1);
 			
 			$this->load->view('saladeljo_view', $data);
 		}
@@ -94,7 +93,7 @@
 			$this->respostes->guardaFilename($filename, $session_data['username'], 3, 1);
 		}
 		@unlink($_FILES[$file_element_name]);
-		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $path));
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $filename));
 	}
 }
 ?>
