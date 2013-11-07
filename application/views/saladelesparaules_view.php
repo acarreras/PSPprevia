@@ -30,15 +30,15 @@
 			
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta1", {})
 				.done(function(percentatge1) {
-					$("#resultatetiqueta1").html(percentatge1);
+					$("#resultatetiqueta1").html("total d'entusiame: " + percentatge1);
 				});
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta2", {})
 				.done(function(percentatge2) {
-					$("#resultatetiqueta2").html(percentatge2);
+					$("#resultatetiqueta2").html("total d'amistat: " + percentatge2);
 				});
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta3", {})
 				.done(function(percentatge3) {
-					$("#resultatetiqueta3").html(percentatge3);
+					$("#resultatetiqueta3").html("total de familiar: " + percentatge3);
 				});
 			
 		});
@@ -88,7 +88,7 @@
 		<!-- titula -->
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
-		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/titula01.png'; ?>" />
+		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/titula01.jpg'; ?>" />
 		<?php if ($bapartat1fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelesparaulestitula" name="saladelesparaulestitula"/>
@@ -105,18 +105,19 @@
 		<!-- etiqueta -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
-		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.png'; ?>" />
+		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.jpg'; ?>" />
 		<?php if ($bapartat2fet == false) {?>
 		<form id="formetiquetes">
+			<div style="margin-top:2%"></div>
 			<input id="saladelesparaulesetiqueta1" name="etiqueta" type="radio" value="1"/>
-			<div class="contingutsetiqueta">entusiasme</div>
-			<div class="contingutsboxresposta" id="resultatetiqueta1"></div>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">entusiasme</label>
+			<div class="contingutstexttitolresposta" id="resultatetiqueta1"></div>
 			<input id="saladelesparaulesetiqueta2" name="etiqueta" type="radio" value="2"/>
-			<div class="contingutsetiqueta">amistat</div>
-			<div class="contingutsboxresposta" id="resultatetiqueta2"></div>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">amistat</label>
+			<div class="contingutstexttitolresposta" id="resultatetiqueta2"></div>
 			<input id="saladelesparaulesetiqueta3" name="etiqueta" type="radio" value="3"/>
-			<div class="contingutsetiqueta">familiar</div>
-			<div class="contingutsboxresposta"  id="resultatetiqueta3"></div>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">familiar</label>
+			<div class="contingutstexttitolresposta"  id="resultatetiqueta3"></div>
 			<input id="saladelesparaulesetiquetaok" type="button" value="ok"/>
 		</form>
 		<?php } else { ?>
@@ -126,7 +127,8 @@
 			<div class="contingutsboxresposta">
 				totals d'entusiasme: <?php echo($percentatgeetiqueta1); ?><br/>
 				totals d'amistat: <?php echo($percentatgeetiqueta2);  ?><br/>
-				totals de familiar: <?php echo($percentatgeetiqueta3); ?></div>
+				totals de familiar: <?php echo($percentatgeetiqueta3); ?>
+			</div>
 		<?php } ?>
 		<!-- defineix guerra -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>

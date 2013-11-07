@@ -150,8 +150,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso1"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso1propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso1resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso1propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso1resposta); ?></div>
 		<?php } ?>
 		<!-- so 2 -->
 		<audio controls>
@@ -166,8 +166,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso2"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso2propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso2resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso2propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso2resposta); ?></div>
 		<?php } ?>
 		<!-- so 3 -->
 		<audio controls>
@@ -182,8 +182,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso3"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso3propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso3resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso3propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso3resposta); ?></div>
 		<?php } ?>
 		<!-- so 4 -->
 		<audio controls>
@@ -198,8 +198,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso4"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso4propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso4resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso4propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso4resposta); ?></div>
 		<?php } ?>
 		<!-- so 5 -->
 		<audio controls>
@@ -214,8 +214,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso5"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso5propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso5resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso5propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso5resposta); ?></div>
 		<?php } ?>
 		<!-- so 6 -->
 		<audio controls>
@@ -230,8 +230,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso6"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Què vas dir que era? <?php echo($titolso6propi); ?></div>
-			<div class="contingutsboxresposta">Què es? <?php echo($titolso6resposta); ?></div>
+			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso6propi); ?></div>
+			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso6resposta); ?></div>
 		<?php } ?>
 		<!-- grava tranquilitat i perill -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
@@ -244,12 +244,13 @@
 			</form>
 			<div class="contingutsboxresposta" id="filenametranquilitat"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Vas pujar el so <?php echo($sotranquilitatpropi); ?>. Escolta la tranquilitat</div>
+			<div class="contingutsboxresposta">Vas pujar el so <?php echo($sotranquilitatpropi); ?>. Escolta la tranquilitat </div>
 			<audio controls>
 				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/mpeg">
 				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/ogg">
 				<embed height="50" width="100" src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>">
 			</audio>
+			<div style="margin-top:5%"></div>
 		<?php } ?>
 		<div class="contingutstitol">. Que representi PERILL</div>
 		<?php if ($bapartat22fet == false) {?>
@@ -259,17 +260,17 @@
 			</form>
 			<div class="contingutsboxresposta" id="filenameperill"></div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Vas pujar el so <?php echo($soperillpropi); ?>. Fes play al perill</div>
+			<div class="contingutsboxresposta">Vas pujar el so <?php echo($soperillpropi); ?>. Fes play al perill </div>
 			<audio controls>
-				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/mpeg">
-				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/ogg">
-				<embed height="50" width="100" src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>">
+				<source src="<?php echo base_url().'files/'.$soperillpropifilename; ?>" type="audio/mpeg">
+				<source src="<?php echo base_url().'files/'.$soperillpropifilename; ?>" type="audio/ogg">
+				<embed height="50" width="100" src="<?php echo base_url().'files/'.$soperillpropifilename; ?>">
 			</audio>
+			<div style="margin-top:5%"></div>
 		<?php } ?>
 		<!-- deixa en silenci -->
-		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
-		<div class="hr"><hr/></div>
-		
+		<!-- <div class="contingutstitol"><?php echo($titolapartat3); ?></div> -->
+		<!-- <div class="hr"><hr/></div> -->
 		<!-- banda sonora del mon -->
 		<div class="contingutstitol"><?php echo($titolapartat4); ?></div>
 		<div class="hr"><hr/></div>

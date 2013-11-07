@@ -33,6 +33,20 @@
 			$data['perquegraffitipropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 4,2);
 			$data['perquegraffitialtres'] = $this->respostes->getAltresRespostaText($session_data['username'], 4,2);
 			
+			$filtrepropinum = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 4,1);
+			if($filtrepropinum == 1){
+				$data['filtrepropi'] = '/assets/images/saladelaimatge/filtra01ambfiltre1.jpg';
+			}
+			else if($filtrepropinum == 2){
+				$data['filtrepropi'] = '/assets/images/saladelaimatge/filtra01ambfiltre2.jpg';
+			}
+			else if($filtrepropinum == 3){
+				$data['filtrepropi'] = '/assets/images/saladelaimatge/filtra01ambfiltre3.jpg';
+			}
+			$data['percentatgeetiqueta1'] = $this->respostes->getPercentatgeEtiqueta(1, 4,1);
+			$data['percentatgeetiqueta2'] = $this->respostes->getPercentatgeEtiqueta(2, 4,1);
+			$data['percentatgeetiqueta3'] = $this->respostes->getPercentatgeEtiqueta(3, 4,1);
+			
 			$this->load->view('saladelaimatge_view', $data);
 		}
 		else
@@ -55,6 +69,32 @@
 		
 		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 4,2);
 		
+		echo $str;
+	}
+	
+	function guardaFiltre(){
+		$session_data = $this->session->userdata('logged_in');
+		$this->respostes->guardarEtiquetes($this->input->post('num'), $session_data['username'], 4,1);
+	}
+	
+	function percentatgeFiltre1(){
+		$str = '';
+		$results = $this->respostes->getPercentatgeEtiqueta(1, 4, 1);
+		$str .= $results;
+		echo $str;
+	}
+	
+	function percentatgeFiltre2(){
+		$str = '';
+		$results = $this->respostes->getPercentatgeEtiqueta(2, 4, 1);
+		$str .= $results;
+		echo $str;
+	}
+	
+	function percentatgeFiltre3(){
+		$str = '';
+		$results = $this->respostes->getPercentatgeEtiqueta(3, 4, 1);
+		$str .= $results;
 		echo $str;
 	}
 	

@@ -35,10 +35,17 @@
 			$data['titolimatgepropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 1,1);
 			$data['titolimatgealtres'] = $this->respostes->getAltresRespostaText($session_data['username'], 1,1);
 			
-			$data['etiquetapropia'] = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 1,2);
-			$data['percentatgeetiqueta1'] = $this->respostes->getPercentatgeEtiqueta(1);
-			$data['percentatgeetiqueta2'] = $this->respostes->getPercentatgeEtiqueta(2);
-			$data['percentatgeetiqueta3'] = $this->respostes->getPercentatgeEtiqueta(3);
+			$etiquetanum = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 1,2);
+			if($etiquetanum == 1) {
+				$data['etiquetapropia'] = "entusiasme";
+			} else if($etiquetanum == 2) {
+				$data['etiquetapropia'] = "amistat";
+			} else if($etiquetanum == 3) {
+				$data['etiquetapropia'] = "familiar";
+			}
+			$data['percentatgeetiqueta1'] = $this->respostes->getPercentatgeEtiqueta(1, 1,2);
+			$data['percentatgeetiqueta2'] = $this->respostes->getPercentatgeEtiqueta(2, 1,2);
+			$data['percentatgeetiqueta3'] = $this->respostes->getPercentatgeEtiqueta(3, 1,2);
 			
 			$data['defguerra1propi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 1,31);
 			$data['defguerra1altres'] = $this->respostes->getAltresRespostaText($session_data['username'], 1,31);
@@ -81,21 +88,21 @@
 	
 	function percentatgeEtiqueta1(){
 		$str = '';
-		$results = $this->respostes->getPercentatgeEtiqueta(1);
+		$results = $this->respostes->getPercentatgeEtiqueta(1, 1, 2);
 		$str .= $results;
 		echo $str;
 	}
 	
 	function percentatgeEtiqueta2(){
 		$str = '';
-		$results = $this->respostes->getPercentatgeEtiqueta(2);
+		$results = $this->respostes->getPercentatgeEtiqueta(2, 1, 2);
 		$str .= $results;
 		echo $str;
 	}
 	
 	function percentatgeEtiqueta3(){
 		$str = '';
-		$results = $this->respostes->getPercentatgeEtiqueta(3);
+		$results = $this->respostes->getPercentatgeEtiqueta(3, 1, 2);
 		$str .= $results;
 		echo $str;
 	}

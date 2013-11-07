@@ -166,21 +166,13 @@ Class Respostes extends CI_Model{
 			if ($query2->num_rows() > 0) {
 				$result2 = $query2->result();
 				$str = $result2[0]->respostanumber;
-				// TODO: posar les etiquetes segons el  num
-				if($str == 1) {
-					$str = "entusiasme";
-				} else if($str == 2) {
-					$str = "amistat";
-				} else if($str == 3) {
-					$str = "familiar";
-				}
 			}
 		}
 		return $str;
 	}
 	
-	function getPercentatgeEtiqueta($number){
-		$query = $this->db->query("SELECT COUNT(1) as number FROM respostes WHERE respostanumber = ".$number);
+	function getPercentatgeEtiqueta($number, $sala, $apartat){
+		$query = $this->db->query("SELECT COUNT(1) as number FROM respostes WHERE respostanumber = ".$number." AND salaid = ".$sala." AND apartatid = ".$apartat);
 		$num = 0;
 		if($query->num_rows() > 0){
 			$result = $query->result();

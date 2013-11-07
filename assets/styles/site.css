@@ -161,6 +161,7 @@ input[type="password"]:focus{
 }
 
 .right { float: right }
+.left { float: left }
 
 a.capcalerafletxa:link{
 	font-family: 'Tomato', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none; 
@@ -249,7 +250,8 @@ a.capcalerafletxa:active{
 .contingutstitol{
     font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
-	clear:both;	
+	clear:both;
+	margin-top:2%;
 }
 
 div.hr{
@@ -293,6 +295,16 @@ div.hr hr{
 	width:20%;
 	float:left;
 }
+
+.contingutsimatge15percent{
+    position:relative;
+	margin-top:2%;
+	margin-bottom:5%;
+	margin-right:2%;
+	width:10%;
+	float:left;
+}
+
 input.contingutstextform50percent{
 	position:relative;
 	width:40%;
@@ -336,29 +348,32 @@ input.contingutstextform100percent:focus{
 
 .contingutstexttitolresposta{
 	position:relative;
-	margin-left:10%;
 	margin-top:2%;
     font-family: 'Alsina', serif; font-size:110%; color:rgb(140,140,120); text-decoration: none;
 	text-align:left;
+	margin-bottom:2px;
 }
 
 .contingutsboxresposta{
 	position:relative;
-	margin-left:10%;
-	margin-top:2px;
+	margin-right:5%;
     font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
 }
 
 .contingutsetiqueta{
-	position:relative;
-	margin-top:2px;
-    font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
-	float:left;
 }
 
 .choosefileboto{
     font-family: 'TomatoThin', serif; font-size:80%; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
+}
+
+audio {
+	position:relative;
+	margin-top:2%;
+	margin-right:5%;
+	float:left;
 }
