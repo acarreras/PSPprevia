@@ -12,19 +12,14 @@
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/styles/site.css'; ?>">
+	<link href="./javascripts/video-js/video-js.css" rel="stylesheet">
 	<!--Load JQUERY from Google's network -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="<?php echo base_url().'js/ajaxfileupload.js'; ?>"></script>
+	<script src="./javascripts/video-js/video.js"></script>
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
-		
-		$("#saladelaimatgegraffitiok").click(function () {
-			$.post("<?php echo base_url()?>index.php/saladelaimatge/guardarGraffiti", {titol : $("#saladelaimatgegraffitiperque").val()})
-				.done(function(resultat) {
-					// TODO: retornar per separat els texts (parsejar?) i les imatges (parsejar imatges eing?)
-					$("#resultatgraffitis").html(resultat);
-				});
-		});
 		
 		$bfiltre1 = false; $bfiltre2 = false; $bfiltre3 = false;
 		$bfiltratok = false;
@@ -36,7 +31,7 @@
 		});
 		$("#saladelaimatgefiltre1").mouseleave(function() {
 			if($bfiltre1 != true && $bfiltratok != true){
-				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.png'; ?>');
+				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>');
 			}
 		});
 		$("#saladelaimatgefiltre1").click(function() {
@@ -54,7 +49,7 @@
 		});
 		$("#saladelaimatgefiltre2").mouseleave(function() {
 			if($bfiltre2 != true && $bfiltratok != true){
-				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.png'; ?>');
+				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>');
 			}
 		});
 		$("#saladelaimatgefiltre2").click(function() {
@@ -72,7 +67,7 @@
 		});
 		$("#saladelaimatgefiltre3").mouseleave(function() {
 			if($bfiltre3 != true && $bfiltratok != true){
-				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.png'; ?>');
+				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>');
 			}
 		});
 		$("#saladelaimatgefiltre3").click(function() {
@@ -115,6 +110,91 @@
 				});
 			
 		});
+		
+		$('#saladelaimatgegraffitiok').click(function(e) {
+			e.preventDefault();
+			$.ajaxFileUpload({
+				url         :'<?php echo base_url()?>index.php/saladelaimatge/uploadFileGraffiti', 
+				secureuri      :false,
+				fileElementId  :'userfile',
+				dataType    : 'json',
+				data        : {
+					'title'           : $('#saladelaimatgegraffitiperque').val()
+				},
+				success  : function (data, status){
+					if(data.status == 'error'){
+						$('#filenameautorretrat').html("Error guardant el so: torna-ho a provar. " + data.msg);
+					}
+					else if(data.status == 'success'){
+						$('#graffiti').attr('src', '<?php echo base_url()?>files/' + data.path);
+						$('#filenameagraffiti').html("El teu graffiti " + data.filename + " s'ha guardat correctament");
+						$('#resultatgraffitisimg1').attr('src', '<?php echo base_url()?>files/' + data.img1);
+						$('#resultatgraffitisimg2').attr('src', '<?php echo base_url()?>files/' + data.img2);
+						$('#resultatgraffitisimg3').attr('src', '<?php echo base_url()?>files/' + data.img3);
+					}
+				}
+			});
+			return false;
+		});
+		
+		$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false;
+		$bfotogramaok = false;
+		
+		$("#saladelaimatgefotograma1").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma2').css('border', "0px");
+				$('#saladelaimatgefotograma3').css('border', "0px");
+				$('#saladelaimatgefotograma4').css('border', "0px");
+				$bfotograma1 = true; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false;
+			}
+		});
+		$("#saladelaimatgefotograma2").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma1').css('border', "0px");
+				$('#saladelaimatgefotograma3').css('border', "0px");
+				$('#saladelaimatgefotograma4').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = true; $bfotograma3 = false; $bfotograma4 = false;
+			}
+		});
+		$("#saladelaimatgefotograma3").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma1').css('border', "0px");
+				$('#saladelaimatgefotograma2').css('border', "0px");
+				$('#saladelaimatgefotograma4').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = true; $bfotograma4 = false;
+			}
+		});
+		$("#saladelaimatgefotograma4").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma1').css('border', "0px");
+				$('#saladelaimatgefotograma2').css('border', "0px");
+				$('#saladelaimatgefotograma3').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = true;
+			}
+		});
+		
+		$("#saladelaimatgefotogramaok").click(function () {
+			$bfotogramaok = true;
+			$numframe = 0;
+			if($bfotograma1 == true){
+				$numframe = 1;
+			}
+			if($bfotograma2 == true){
+				$numframe = 2;
+			}
+			if($bfotograma3 == true){
+				$numframe = 3;
+			}
+			if($bfotograma4 == true){
+				$numframe = 4;
+			}
+			$.post("<?php echo base_url()?>index.php/saladelaimatge/guardaFrame", {num : $numframe})
+		});
+		
 	});
   </script>
 </head>
@@ -143,12 +223,11 @@
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat1fet == false) {?>
-			<img id="saladelaimatgeimatgefiltra" class="contingutsimatge60percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtra01.png'; ?>" />
-			<img id="saladelaimatgefiltre1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre1.png'; ?>" />
-			<img id="saladelaimatgefiltre2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre2.png'; ?>" />
-			<img id="saladelaimatgefiltre3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre3.png'; ?>" />
-			<div style="margin-top:2%"></div>
-			<form>
+			<img id="saladelaimatgeimatgefiltra" class="contingutsimatge60percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>" />
+			<img id="saladelaimatgefiltre1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre1.jpg'; ?>" />
+			<img id="saladelaimatgefiltre2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre2.jpg'; ?>" />
+			<img id="saladelaimatgefiltre3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre3.jpg'; ?>" />
+			<form style="position:relative; margin-top:2%; margin-left:2%">
 				<input id="saladelaimatgefiltreok" type="button" value="ok"/>
 			</form>
 			<div style="margin-top:5%"></div>
@@ -170,21 +249,72 @@
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat2fet == false) {?>
-			<form>
-				<input type="text" class="contingutstextformrequadre" id="saladelaimatgegraffitiperque" name="saladelaimatgegraffitiperque"/>
-				<input id="saladelaimatgegraffitiok" type="button" value="ok"/>
+			<div style="clear:both">
+				<img class="contingutsimatge50percent" id="graffiti" src=""/>
+				<form style="margin-top:2%">
+					<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+					<div class="contingutsboxresposta" id="filenameagraffiti"></div>
+					<textarea class="contingutstextformrequadre" id="saladelaimatgegraffitiperque" name="saladelaimatgegraffitiperque"></textarea>
+					<input id="saladelaimatgegraffitiok" type="button" value="ok" style="margin-top:3%"/>
+				</form>
+			</div>
+			<div style="clear:both">
 				<div class="contingutstexttitolresposta">Què han trobat pel carrer els altres artístes?</div>
-				<div class="contingutsboxresposta" id="resultatgraffitis"></div>
-			</form>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg1" src=""/>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg2" src=""/>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg3" src=""/>
+			</div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
-			<div class="contingutsboxresposta"><?php echo($perquegraffitipropi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
-			<div class="contingutsboxresposta"><?php echo($perquegraffitialtres); ?></div>
+			<div style="clear:both">
+				<div class="contingutstexttitolresposta">El teu graffiti</div>
+				<div class="contingutsboxresposta"><?php echo($perquegraffitipropi); ?></div>
+				<img class="contingutsimatge50percent" src="<?php echo base_url().'files/'.$graffitipropi; ?>" />
+			</div>
+			<div style="clear:both">
+				<div class="contingutstexttitolresposta">Els tres últims graffitis</div>
+				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti1; ?>" />
+				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti2; ?>" />
+				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti3; ?>" />
+			</div>
+			<div style="clear:both">
+				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti1); ?></div>
+				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti2); ?></div>
+				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti3); ?></div>
+			</div>
 		<?php } ?>
 		<!-- fotograma -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
+		<?php if ($bapartat3fet == false) {?>
+			<div style="margin-top:2%">
+				<video id="videosilenci" class="video-js vjs-default-skin" controls preload="auto" width="512" height="211" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
+					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+				</video>
+				<form>
+					<input id="saladelaimatgefotogramaok" type="button" value="ok"/>
+				</form>
+			</div>
+			<div style="clear:both">
+				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma1.png'; ?>" />
+				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma2.png'; ?>" />
+				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma3.png'; ?>" />
+				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma4.png'; ?>" />
+			</div>
+		<?php } else { ?>
+			<div style="margin-top:2%">
+				<video id="videosilenci" class="video-js vjs-default-skin" controls preload="auto" width="512" height="211" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
+					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+				</video>
+			</div>
+			<div style="clear:both">
+				<div class="contingutstexttitolresposta">Quin fotograma vas triar?</div>
+				<div class="contingutsboxresposta">Vas triar el número <?php echo($fotogramapropi); ?></div>
+				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma1.png'; ?>" />
+				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma2.png'; ?>" />
+				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma3.png'; ?>" />
+				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma4.png'; ?>" />
+			</div>
+		<?php } ?>
 	</div>
 </body>
 </html>

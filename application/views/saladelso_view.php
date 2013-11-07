@@ -275,7 +275,7 @@
 		<div class="contingutstitol"><?php echo($titolapartat4); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat4fet == false) {?>
-			<form>
+			<form style="margin-top:2%">
 				<input type="text" class="contingutstextform100percent" id="saladelsobandasonora" name="saladelsobandasonora"/>
 				<input id="saladelsobandasonoraok" type="button" value="ok"/>
 				<div class="contingutstexttitolresposta">Què han escrit els altres participants?</div>

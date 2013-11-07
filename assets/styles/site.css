@@ -238,7 +238,7 @@ a.capcalerafletxa:active{
 
 
 .contingutsbox{
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.05);
     position : absolute;
 	left:5%;
 	top:8%;
@@ -252,6 +252,14 @@ a.capcalerafletxa:active{
 	text-align:left;
 	clear:both;
 	margin-top:2%;
+}
+
+.contingutsboxwc{
+    background-color: rgba(255,255,255,0);
+	margin: 0 auto;
+	padding-top:20%;
+	padding-left:10%;
+	width:50%;
 }
 
 div.hr{
@@ -328,17 +336,22 @@ input.contingutstextform100percent{
 	float:left;
 }
 
-input.contingutstextformrequadre{
+.contingutstextformrequadre{
 	position:relative;
 	width:40%;
-	height: 60px;
+	height:30%;
 	margin-top:2%;
 	background-color:rgba(255,255,255,255);
 	font-family: 'Alsina', serif; font-size:100%; color:rgb(0,0,0); text-decoration: none;
 	border:0px;
 	border-color:#000000 #000000;
+	text-align:left;
+	padding-top:0px;
+	vertical-align:top;
+	resize: none;
+	word-wrap:off;
 }
-input.contingutstextformrequadre:focus{
+.contingutstextformrequadre:focus{
 	outline: 0;
 }
 
@@ -358,6 +371,23 @@ input.contingutstextform100percent:focus{
 	position:relative;
 	margin-right:5%;
     font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	text-align:left;
+}
+
+.contingutsboxresposta30percent{
+	position:relative;
+	margin-left:0%;
+	margin-top:-5%;
+	width:25%;
+    font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	text-align:left;
+	float:left;
+}
+
+.contingutsboxrespostawc{
+	position:relative;
+	margin-right:5%;
+    font-family: 'Alsina', serif; font-size:140%; color:rgb(140,140,120); text-decoration: none;
 	text-align:left;
 }
 

@@ -20,53 +20,32 @@
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
+		
+		$("span").hide(5);
+		$("span:first-child").show("fast", function() {
+			// Use arguments.callee so we don't need a named function
+			$(this).next().show("fast", arguments.callee );
+		});
+	
 		$num = 3;
-		fons1();
-		var function1 = function fons1() {
-			if($num > 0) {
-				alert('inside 1');
-				$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaLLENGUATGEover.png'; ?>), " + $('html').css('background');
-				$('html').css('background', $stringurl);
-				$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
-				$('html').css('background-repeat', $stringrepeat);
-				$stringposition = "center center, " + $('html').css('background-position');
-				$('html').css('background-position', $stringposition);
-				$stringattachment = "fixed, " + $('html').css('background-attachment');
-				$stringbckgrndsize = "cover, cover";
-				$('html').css('background-size', $stringbckgrndsize);
-				$('html').css('background-attachment', $stringattachment);
-				$stringwebkit = "cover, " + $('html').css('-webkit-background-size');
-				$('html').css('-webkit-background-size', $stringwebkit);
-				$stringmoz = "cover, " + $('html').css('-moz-background-size');
-				$('html').css('-moz-background-size', $stringmoz);
-				$stringo = "cover, " + $('html').css('-o-background-size');
-				$('html').css('-o-background-size', $stringo);
-			}
-			return $.ajax(...);
+		if($num > 0) {
+			$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaLLENGUATGEover.png'; ?>), " + $('html').css('background');
+			$('html').css('background', $stringurl);
+			$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
+			$('html').css('background-repeat', $stringrepeat);
+			$stringposition = "center center, " + $('html').css('background-position');
+			$('html').css('background-position', $stringposition);
+			$stringbckgrndsize = "cover, cover";
+			$('html').css('background-size', $stringbckgrndsize);
 		}
-		function1().done(fons2);
-
-		var function2 = function fons2() {
-			alert('inside 2');
-			if($num > 1) {
-				$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaSOover.png'; ?>), " + $('html').css('background');
-				$('html').css('background', $stringurl);
-				$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
-				$('html').css('background-repeat', $stringrepeat);
-				$stringposition = "center center, " + $('html').css('background-position');
-				$('html').css('background-position', $stringposition);
-				$stringattachment = "fixed, " + $('html').css('background-attachment');
-				$stringbckgrndsize = "cover, cover";
-				$('html').css('background-size', $stringbckgrndsize);
-				$('html').css('background-attachment', $stringattachment);
-				$stringwebkit = "cover, " + $('html').css('-webkit-background-size');
-				$('html').css('-webkit-background-size', $stringwebkit);
-				$stringmoz = "cover, " + $('html').css('-moz-background-size');
-				$('html').css('-moz-background-size', $stringmoz);
-				$stringo = "cover, " + $('html').css('-o-background-size');
-				$('html').css('-o-background-size', $stringo);
-			}
-			return $.ajax(...);
+		if($num > 1) {
+			$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaSOover.png'; ?>), " + $('html').css('background');
+			$('html').css('background', $stringurl);$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
+			$('html').css('background-repeat', $stringrepeat);
+			$stringposition = "center center, " + $('html').css('background-position');
+			$('html').css('background-position', $stringposition);
+			$stringbckgrndsize = "cover, cover, cover";
+			$('html').css('background-size', $stringbckgrndsize);
 		}
 	});
   </script>
@@ -81,15 +60,27 @@
 	
 	<?php } else { ?>
 	<?php } ?>
-		
-	<a href="<?php echo ('saladelesparaules'); ?>">1</a>
-	<a href="<?php echo ('saladelso'); ?>">2</a>
-	<a href="<?php echo ('saladelaimatge'); ?>">3</a>
-	<a href="<?php echo ('saladeljo'); ?>">4</a>
-	<a href="<?php echo ('biblioteca'); ?>">5</a>
-	<a href="<?php echo ('exposicioglobal'); ?>">6</a>
-	<a href="<?php echo ('saladeldolorilafelicitat'); ?>">7</a>
-	<a href="<?php echo ('wc'); ?>">8</a>
-	</body>
+	
+	<a href="<?php echo ('saladelesparaules'); ?>">sala 1</a>
+	<a href="<?php echo ('saladelso'); ?>">sala 2</a>
+	<a href="<?php echo ('saladelaimatge'); ?>">sala 3</a>
+	<a href="<?php echo ('saladeljo'); ?>">sala 4</a>
+	<a href="<?php echo ('biblioteca'); ?>">sala 5</a>
+	<a href="<?php echo ('exposicioglobal'); ?>">sala 6</a>
+	<a href="<?php echo ('saladeldolorilafelicitat'); ?>">sala 7</a>
+	<a href="<?php echo ('wc'); ?>">sala 8</a>
+	
+	</br></br></br>
+	
+	<div class="contingutsboxresposta">
+	  <span>Hola,</span> <span>soc la I,</span> <span>la que va anar a K,</span> <span>sí!</span></br>
+	  <span>Si jo fos pintora...</span></br>
+	  <span>com R,</span> <span>sabeu aquell</span> <span>que diuen que mantenia</span> <span>l'univers tot blanc</span></br>
+	  <span>Si jo fos pintora</span> <span>potser</span> <span>tot seria</span> <span>més fàcil</span></br>
+	  <span>Ajudau-me a representar</span> <span> el DOLOR</span> <span>i la FELIACITAT!</span>
+	</div>	
+	
+	
+</body>
 </html>
 

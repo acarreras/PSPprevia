@@ -17,7 +17,21 @@
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
-
+		$("#wctextok").click(function () {
+			$.post("<?php echo base_url()?>index.php/wc/guardarTextWc", {titol : $("#wctext").val()})
+			$.post("<?php echo base_url()?>index.php/wc/ultimText", {})
+				.done(function(res) {
+					$("#resultatwctext1").html(res);
+				});
+			$.post("<?php echo base_url()?>index.php/wc/penultimText", {})
+				.done(function(res) {
+					$("#resultatwctext2").html(res);
+				});
+			$.post("<?php echo base_url()?>index.php/wc/avantpenultimText", {})
+				.done(function(res) {
+					$("#resultatwctext3").html(res);
+				});
+		});
 	});
   </script>
 </head>
@@ -45,6 +59,23 @@
 		<!-- escriu a la porta del wc -->
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
+		<?php if ($bapartat1fet == false) {?>
+			<form style="margin-top:2%">
+				<input type="text" class="contingutstextform100percent" id="wctext" name="wctext"/>
+				<input id="wctextok" type="button" value="ok"/>
+				</br>
+				<div class="contingutsboxrespostawc" id="resultatwctext1"></div>
+				<div class="contingutsboxrespostawc" id="resultatwctext2"></div>
+				<div class="contingutsboxrespostawc" id="resultatwctext3"></div>
+			</form>
+		<?php } else{ ?>
+			<div class="contingutsboxwc">
+				<div class="contingutsboxrespostawc"><?php echo($wctextpropi); ?></div>
+				<div class="contingutsboxrespostawc"><?php echo($wctextaltre1); ?></div>
+				<div class="contingutsboxrespostawc"><?php echo($wctextaltre2); ?></div>
+				<div class="contingutsboxrespostawc"><?php echo($wctextaltre3); ?></div>
+			</div>
+		<?php } ?>
 	</div>
 </body>
 </html>

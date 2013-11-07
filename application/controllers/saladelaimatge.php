@@ -30,9 +30,6 @@
 			$data['bapartat2fet'] = $this->respostes->bapartatJaFet($session_data['username'], 4,2);
 			$data['bapartat3fet'] = $this->respostes->bapartatJaFet($session_data['username'], 4,3);
 			
-			$data['perquegraffitipropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 4,2);
-			$data['perquegraffitialtres'] = $this->respostes->getAltresRespostaText($session_data['username'], 4,2);
-			
 			$filtrepropinum = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 4,1);
 			if($filtrepropinum == 1){
 				$data['filtrepropi'] = '/assets/images/saladelaimatge/filtra01ambfiltre1.jpg';
@@ -46,7 +43,17 @@
 			$data['percentatgeetiqueta1'] = $this->respostes->getPercentatgeEtiqueta(1, 4,1);
 			$data['percentatgeetiqueta2'] = $this->respostes->getPercentatgeEtiqueta(2, 4,1);
 			$data['percentatgeetiqueta3'] = $this->respostes->getPercentatgeEtiqueta(3, 4,1);
+			$data['graffitipropi'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 4,2);
+			$data['perquegraffitipropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 4,22);
+			$data['graffiti1'] = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 4,2);
+			$data['graffiti2'] = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 4,2);
+			$data['graffiti3'] = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 4,2);
+			$data['perquegraffiti1'] = $this->respostes->getAltresRespostaTextUltim($session_data['username'], 4,22);
+			$data['perquegraffiti2'] = $this->respostes->getAltresRespostaTextPenultim($session_data['username'], 4,22);
+			$data['perquegraffiti3'] = $this->respostes->getAltresRespostaTextAvantPenultim($session_data['username'], 4,22);
 			
+			$data['fotogramapropi'] = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 4,3);
+
 			$this->load->view('saladelaimatge_view', $data);
 		}
 		else
@@ -55,21 +62,6 @@
 			redirect('login', 'refresh');
 		}
 		
-	}
-	
-	function guardarGraffiti(){
-		$session_data = $this->session->userdata('logged_in');
-		
-		$results = $this->respostes->getUltimsTexts(4,2);
-		$str = '';
-		foreach ($results as  $row) {
-			$str .= $row->respostatext;
-			$str .= "<br/>";
-		}
-		
-		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 4,2);
-		
-		echo $str;
 	}
 	
 	function guardaFiltre(){
@@ -98,5 +90,53 @@
 		echo $str;
 	}
 	
+	public function uploadFileGraffiti(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		$status = "";
+		$msg = "";
+		$file_element_name = 'userfile';
+		$filename = "";
+		$origname = "";
+		$path = "";
+
+		$config['upload_path'] = './files/';
+		$config['allowed_types'] = 'jpg|gif|png';
+		$config['max_size']  = 1024 * 10;
+		$config['encrypt_name'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($file_element_name)){
+			$status = "error";
+			$msg = $this->upload->display_errors('', '');
+		}
+		else{
+			$data = $this->upload->data();
+			$filename = $data['file_name']; // ok
+			$origname = $data['orig_name'];
+			$path = $data['full_path'];
+			$status = "success";
+			$msg = "file successfully uploaded";
+			$this->respostes->guardaFilename($filename, $session_data['username'], 4, 2);
+			$this->respostes->guardarText($origname, $session_data['username'], 4, 21);
+			$this->respostes->guardarText($_POST['title'], $session_data['username'], 4, 22);
+
+		}
+		
+		$img1 = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 4,2);
+		$img2 = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 4,2);
+		$img3 = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 4,2);
+			
+			
+		@unlink($_FILES[$file_element_name]);
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $filename,
+								'perque' => $_POST['title'], 'img1' => $img1, 'img2' => $img2, 'img3' => $img3));
+	}
+	
+	function guardaFrame(){
+		$session_data = $this->session->userdata('logged_in');
+		$this->respostes->guardarEtiquetes($this->input->post('num'), $session_data['username'], 4,3);
+	}
 }
 ?>

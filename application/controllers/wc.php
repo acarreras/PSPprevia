@@ -24,7 +24,12 @@
 			}
 			$data['titolapartat1'] = $this->apartats->getApartatTitol(18);
 			
-			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 3,1);
+			$data['bapartat1fet'] = $this->respostes->bapartatJaFet($session_data['username'], 7,1);
+			
+			$data['wctextpropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 7,1);
+			$data['wctextaltre1'] = $this->respostes->getAltresRespostaTextUltim($session_data['username'], 7,1);
+			$data['wctextaltre2'] = $this->respostes->getAltresRespostaTextPenultim($session_data['username'], 7,1);
+			$data['wctextaltre3'] = $this->respostes->getAltresRespostaTextAvantPenultim($session_data['username'], 7,1);
 			
 			$this->load->view('wc_view', $data);
 		}
@@ -34,6 +39,29 @@
 			redirect('login', 'refresh');
 		}
 		
+	}
+	
+	function guardarTextWc(){
+		$session_data = $this->session->userdata('logged_in');
+		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 7, 1);
+	}
+	
+	function ultimText(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		echo $this->respostes->getAltresRespostaTextUltim($session_data['username'], 7, 1);
+	}
+	
+	function penultimText(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		echo $this->respostes->getAltresRespostaTextPenultim($session_data['username'], 7, 1);
+	}
+	
+	function avantpenultimText(){
+		$session_data = $this->session->userdata('logged_in');
+		
+		echo $this->respostes->getAltresRespostaTextAvantPenultim($session_data['username'], 7, 1);
 	}
 }
 ?>
