@@ -26,61 +26,80 @@
 			// Use arguments.callee so we don't need a named function
 			$(this).next().show("fast", arguments.callee );
 		});
-	
-		$num = 3;
-		if($num > 0) {
-			$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaLLENGUATGEover.png'; ?>), " + $('html').css('background');
-			$('html').css('background', $stringurl);
-			$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
-			$('html').css('background-repeat', $stringrepeat);
-			$stringposition = "center center, " + $('html').css('background-position');
-			$('html').css('background-position', $stringposition);
-			$stringbckgrndsize = "cover, cover";
-			$('html').css('background-size', $stringbckgrndsize);
-		}
-		if($num > 1) {
-			$stringurl = "url(<?php echo base_url().'assets/images/pinzellades/salaSOover.png'; ?>), " + $('html').css('background');
-			$('html').css('background', $stringurl);$stringrepeat = "no-repeat, " + $('html').css('background-repeat');
-			$('html').css('background-repeat', $stringrepeat);
-			$stringposition = "center center, " + $('html').css('background-position');
-			$('html').css('background-position', $stringposition);
-			$stringbckgrndsize = "cover, cover, cover";
-			$('html').css('background-size', $stringbckgrndsize);
-		}
 	});
   </script>
 </head>
 <body>
 	<!-- menú superior dreta -->
-	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
-	<div class="capcalerabarra right">I</div>
-	<div class="capcalerausername right"><?php echo($username); ?></div>
-	
-	<?php if ($bsala1feta == true) { ?>
-	
-	<?php } else { ?>
+	<div class="titolbox">
+		<a class="capcalerasortir right" href="home/logout">SORTIR</a>
+		<div class="capcalerabarra right">I</div>
+		<div class="capcalerausername right"><?php echo($username); ?></div>
+	</div>
+	<!-- pinzellades -->
+	<img class="mapasales" src="<?php echo base_url().'/assets/images/fons/mapa-sales.png'; ?>" />
+	<?php if($bsala1feta == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaLLENGUATGEover.png'; ?>" />
 	<?php } ?>
-	
-	<a href="<?php echo ('saladelesparaules'); ?>">sala 1</a>
-	<a href="<?php echo ('saladelso'); ?>">sala 2</a>
-	<a href="<?php echo ('saladelaimatge'); ?>">sala 3</a>
-	<a href="<?php echo ('saladeljo'); ?>">sala 4</a>
-	<a href="<?php echo ('biblioteca'); ?>">sala 5</a>
-	<a href="<?php echo ('exposicioglobal'); ?>">sala 6</a>
-	<a href="<?php echo ('saladeldolorilafelicitat'); ?>">sala 7</a>
-	<a href="<?php echo ('wc'); ?>">sala 8</a>
-	
-	</br></br></br>
-	
+	<?php if($bsala2feta == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaSOover.png'; ?>" />
+	<?php } ?>
+	<?php if($bsala3feta == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaDELAIMATGEover.png'; ?>" />
+	<?php } ?>
+	<?php if($bsala4feta == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaJOover.png'; ?>" />
+	<?php } ?>
+	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaBIBLIOover.png'; ?>" />
+	<?php if($bexpoglobal == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaEXPOGLOBALover.png'; ?>" />
+	<?php } ?>
+	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaDOLORiFELICITATover.png'; ?>" />
+	<?php if($bsala7feta == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaWCover.png'; ?>" />
+	<?php } ?>
+	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaLAMEVAEXPOover.png'; ?>" />
+	<!-- text presentacio -->
 	<div class="contingutsboxresposta">
 	  <span>Hola,</span> <span>soc la I,</span> <span>la que va anar a K,</span> <span>sí!</span></br>
-	  <span>Si jo fos pintora...</span></br>
-	  <span>com R,</span> <span>sabeu aquell</span> <span>que diuen que mantenia</span> <span>l'univers tot blanc</span></br>
-	  <span>Si jo fos pintora</span> <span>potser</span> <span>tot seria</span> <span>més fàcil</span></br>
-	  <span>Ajudau-me a representar</span> <span> el DOLOR</span> <span>i la FELIACITAT!</span>
-	</div>	
-	
-	
+	  <span>Si jo fos pintora...</span> <span>com R,</span> <span>sabeu aquell</span> <span>que diuen que mantenia</span> <span>l'univers tot blanc</span></br>
+	  <span>Si jo fos pintora</span> <span>potser</span> <span>tot seria</span> <span>més fàcil</span> <span>Ajudeu-me a representar</span> <span> el DOLOR</span> <span>i la FELICITAT!</span>
+	</div>
+	<!-- links a sales -->
+	<div class="saladelesparaulesbox">
+		<a class="mapa" href="<?php echo ('saladelesparaules'); ?>">SALA DE</br>LES PARAULES</a>
+	</div>
+	<div class="saladelsobox">
+		<a class="mapa" href="<?php echo ('saladelso'); ?>">SALA</br>DEL</br>SO</a>
+	</div>
+	<div class="saladelaimatgebox">
+		<a class="mapa" href="<?php echo ('saladelaimatge'); ?>">SALA DE</br>LA IMATGE</a>
+	</div>
+	<div class="saladeljobox">
+		<a class="mapa" href="<?php echo ('saladeljo'); ?>">SALA DEL JO</a>
+	</div>
+	<div class="bibliotecabox">
+		<a class="mapa" href="<?php echo ('biblioteca'); ?>">BIBLIOTECA</br>(DOSSIERS</br>PEDAGOGICS)</a>
+	</div>
+	<?php if($bexpoglobal == true){ ?>
+		<div class="exposicioglobalbox">
+			<a class="mapa" href="<?php echo ('exposicioglobal'); ?>">L'EXPOSICIO</br>GLOBAL</a>
+		</div>
+	<?php } else{ ?>
+		<div class="exposicioglobalbox">
+			<a class="mapa" href="#">L'EXPOSICIO</br>GLOBAL</a>
+			<div class="contingutsboxresposta">(supera les sales</br>per entrar)</div>
+		</div>
+	<?php } ?>
+	<div class="saladeldolorilafelicitatbox">
+		<a class="mapa" href="<?php echo ('saladeldolorilafelicitat'); ?>">SALA DEL</br>DOLOR I LA</br>FELICITAT</a>
+	</div>
+	<div class="wcbox">
+		<a class="mapa" href="<?php echo ('wc'); ?>">WC</a>
+	</div>
+	<div class="lamevaexposiciobox">
+		<a class="mapa" href="<?php echo ('lamevaexposicio'); ?>">LA MEVA</br>EXPOSICIO</a>
+	</div>
 </body>
 </html>
 

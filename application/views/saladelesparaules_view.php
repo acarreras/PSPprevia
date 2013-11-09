@@ -68,21 +68,23 @@
 </head>
 <body>
 	<!-- menú superior dreta -->
-	<div class="capcaleratitol"><?php echo($titol);?></div>
-	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
-	<div class="capcalerabarra right">I</div>
-	<div class="capcalerausername right"><?php echo($username); ?></div>
-	<br/><br/>
-	<a class="capcalerahome right" href="home">^</a>
-	<div class="capcalerabarra right">I</div>
-	<?php if($salanext != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+	<div class="titolbox">
+		<div class="capcaleratitol"><?php echo($titol);?></div>
+		<a class="capcalerasortir right" href="home/logout">SORTIR</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
-	<?php if($salaprev != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+		<div class="capcalerausername right"><?php echo($username); ?></div>
+		<br/><br/>
+		<a class="capcalerahome right" href="home">sales</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
+		<?php if($salanext != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+		<?php if($salaprev != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+	</div>
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- titula -->
@@ -134,7 +136,7 @@
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat31fet == false) {?>
-			<div class="contingutstitol">. Què tingui com a màxim 10 paraules</div>
+			<div class="contingutssubtitol">. Què tingui com a màxim 10 paraules</div>
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerra10paraules" name="saladelesparaulesdefineixguerra10paraules"/>
 				<input id="saladelesparaulesdefguerra1ok" type="button" value="ok"/>
@@ -148,7 +150,7 @@
 			<div class="contingutsboxresposta"><?php echo($defguerra1altres); ?></div>
 		<?php } ?>
 		<?php if ($bapartat32fet == false) {?>
-			<div class="contingutstitol">. Amb paraules tècniques o científiques</div>
+			<div class="contingutssubtitol">. Amb paraules tècniques o científiques</div>
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerratecnic" name="saladelesparaulesdefineixguerratecnic"/>
 				<input id="saladelesparaulesdefguerra2ok" type="button" value="ok"/>
@@ -162,7 +164,7 @@
 			<div class="contingutsboxresposta"><?php echo($defguerra2altres); ?></div>
 		<?php } ?>
 		<?php if ($bapartat33fet == false) {?>
-			<div class="contingutstitol">. Amb paraules que pugui entendre un nen petit</div>
+			<div class="contingutssubtitol">. Amb paraules que pugui entendre un nen petit</div>
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerranen" name="saladelesparaulesdefineixguerranen"/>
 				<input id="saladelesparaulesdefguerra3ok" type="button" value="ok"/>

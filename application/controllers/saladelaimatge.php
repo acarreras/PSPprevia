@@ -136,7 +136,7 @@
 	
 	function guardaFrame(){
 		$session_data = $this->session->userdata('logged_in');
-		$this->respostes->guardarEtiquetes($this->input->post('num'), $session_data['username'], 4,3);
+		$this->respostes->guardarValor($this->input->post('num'), $session_data['username'], 4,3);
 	}
 }
 ?>

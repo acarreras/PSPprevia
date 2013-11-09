@@ -23,7 +23,7 @@
 				$data['salaprev'] = $row->salaprev;
 			}
 						
-			$this->load->view('Lamevaexposicio_view', $data);
+			$this->load->view('lamevaexposicio_view', $data);
 		}
 		else
 		{

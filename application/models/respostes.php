@@ -131,24 +131,11 @@ Class Respostes extends CI_Model{
 			$result = $query->result();
 			$userid = $result[0]->id;
 			
-			// primera etiqueta té valor 1, la segona 2 i la tercera 3
-			if($valor == 1){
-				$num = 1;
-			}
-			else if($valor == 2){
-				$num = 2;
-			}
-			else if($valor == 3){
-				$num = 3;
-			}
-			else{
-				$num = 123456789;
-			}
 			$data = array(
 				'salaid' => $sala,
 				'apartatid' => $apartat,
 				'userid' => $userid,
-				'respostanumber' => $num
+				'respostanumber' => $valor
 			);
 			$this->db->insert('respostes', $data);
 		}
@@ -268,6 +255,22 @@ Class Respostes extends CI_Model{
 			}
 		}
 		return $str;
+	}
+	
+	function guardarValor($valor, $username, $sala, $apartat){
+		$query = $this->db->query("SELECT id FROM users WHERE username = '".$username."'");
+		if($query->num_rows() > 0){
+			$result = $query->result();
+			$userid = $result[0]->id;
+			
+			$data = array(
+				'salaid' => $sala,
+				'apartatid' => $apartat,
+				'userid' => $userid,
+				'respostanumber' => $valor
+			);
+			$this->db->insert('respostes', $data);
+		}
 	}
 }
 ?>

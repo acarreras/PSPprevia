@@ -25,7 +25,6 @@
 		$bfiltratok = false;
 		$("#saladelaimatgefiltre1").mouseenter(function() {
 			if($bfiltratok != true){
-				$bfiltre2 = false; $bfiltre3 = false;
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre1.jpg'; ?>');
 			}
 		});
@@ -37,13 +36,15 @@
 		$("#saladelaimatgefiltre1").click(function() {
 			if($bfiltratok != true){
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre1.jpg'; ?>');
-				$bfiltre1 = true;
+					$bfiltre1 = true; $bfiltre2 = false; $bfiltre3 = false;
+					$(this).css('border', "solid 1px white");
+					$('#saladelaimatgefiltre2').css('border', "0px");
+					$('#saladelaimatgefiltre3').css('border', "0px");
 				}
 		});
 		
 		$("#saladelaimatgefiltre2").mouseenter(function() {
 			if($bfiltratok != true){
-				$bfiltre1 = false; $bfiltre3 = false;
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre2.jpg'; ?>');
 			}
 		});
@@ -55,13 +56,15 @@
 		$("#saladelaimatgefiltre2").click(function() {
 			if($bfiltratok != true){
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre2.jpg'; ?>');
-				$bfiltre2 = true;
+					$bfiltre1 = false; $bfiltre2 = true; $bfiltre3 = false;
+					$(this).css('border', "solid 1px white");
+					$('#saladelaimatgefiltre1').css('border', "0px");
+					$('#saladelaimatgefiltre3').css('border', "0px");
 			}
 		});
 		
 		$("#saladelaimatgefiltre3").mouseenter(function() {
 			if($bfiltratok != true){
-				$bfiltre1 = false; $bfiltre2 = false;
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre3.jpg'; ?>');
 			}
 		});
@@ -73,7 +76,10 @@
 		$("#saladelaimatgefiltre3").click(function() {
 			if($bfiltratok != true){
 				$("#saladelaimatgeimatgefiltra").attr('src', '<?php echo base_url().'/assets/images/saladelaimatge/filtra01ambfiltre3.jpg'; ?>');
-				$bfiltre3 = true;
+					$bfiltre1 = false; $bfiltre2 = false; $bfiltre3 = true;
+					$(this).css('border', "solid 1px white");
+					$('#saladelaimatgefiltre1').css('border', "0px");
+					$('#saladelaimatgefiltre2').css('border', "0px");
 			}
 		});
 		
@@ -137,7 +143,7 @@
 			return false;
 		});
 		
-		$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false;
+		$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false; $bfotograma5 = false; $bfotograma6 = false;
 		$bfotogramaok = false;
 		
 		$("#saladelaimatgefotograma1").click(function() {
@@ -146,7 +152,9 @@
 				$('#saladelaimatgefotograma2').css('border', "0px");
 				$('#saladelaimatgefotograma3').css('border', "0px");
 				$('#saladelaimatgefotograma4').css('border', "0px");
-				$bfotograma1 = true; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false;
+				$('#saladelaimatgefotograma5').css('border', "0px");
+				$('#saladelaimatgefotograma6').css('border', "0px");
+				$bfotograma1 = true; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false; $bfotograma5 = false; $bfotograma6 = false;
 			}
 		});
 		$("#saladelaimatgefotograma2").click(function() {
@@ -155,7 +163,9 @@
 				$('#saladelaimatgefotograma1').css('border', "0px");
 				$('#saladelaimatgefotograma3').css('border', "0px");
 				$('#saladelaimatgefotograma4').css('border', "0px");
-				$bfotograma1 = false; $bfotograma2 = true; $bfotograma3 = false; $bfotograma4 = false;
+				$('#saladelaimatgefotograma5').css('border', "0px");
+				$('#saladelaimatgefotograma6').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = true; $bfotograma3 = false; $bfotograma4 = false; $bfotograma5 = false; $bfotograma6 = false;
 			}
 		});
 		$("#saladelaimatgefotograma3").click(function() {
@@ -164,7 +174,9 @@
 				$('#saladelaimatgefotograma1').css('border', "0px");
 				$('#saladelaimatgefotograma2').css('border', "0px");
 				$('#saladelaimatgefotograma4').css('border', "0px");
-				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = true; $bfotograma4 = false;
+				$('#saladelaimatgefotograma5').css('border', "0px");
+				$('#saladelaimatgefotograma6').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = true; $bfotograma4 = false; $bfotograma5 = false; $bfotograma6 = false;
 			}
 		});
 		$("#saladelaimatgefotograma4").click(function() {
@@ -173,7 +185,31 @@
 				$('#saladelaimatgefotograma1').css('border', "0px");
 				$('#saladelaimatgefotograma2').css('border', "0px");
 				$('#saladelaimatgefotograma3').css('border', "0px");
-				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = true;
+				$('#saladelaimatgefotograma5').css('border', "0px");
+				$('#saladelaimatgefotograma6').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = true; $bfotograma5 = false; $bfotograma6 = false;
+			}
+		});
+		$("#saladelaimatgefotograma5").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma1').css('border', "0px");
+				$('#saladelaimatgefotograma2').css('border', "0px");
+				$('#saladelaimatgefotograma3').css('border', "0px");
+				$('#saladelaimatgefotograma4').css('border', "0px");
+				$('#saladelaimatgefotograma6').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false; $bfotograma5 = true; $bfotograma6 = false;
+			}
+		});
+		$("#saladelaimatgefotograma6").click(function() {
+			if($bfotogramaok != true){
+				$(this).css('border', "solid 1px white");
+				$('#saladelaimatgefotograma1').css('border', "0px");
+				$('#saladelaimatgefotograma2').css('border', "0px");
+				$('#saladelaimatgefotograma3').css('border', "0px");
+				$('#saladelaimatgefotograma4').css('border', "0px");
+				$('#saladelaimatgefotograma5').css('border', "0px");
+				$bfotograma1 = false; $bfotograma2 = false; $bfotograma3 = false; $bfotograma4 = false; $bfotograma5 = false; $bfotograma6 = true;
 			}
 		});
 		
@@ -192,6 +228,13 @@
 			if($bfotograma4 == true){
 				$numframe = 4;
 			}
+			if($bfotograma5 == true){
+				$numframe = 5;
+			}
+			if($bfotograma6 == true){
+				$numframe = 6;
+			}
+			$('#videodiv').fadeOut();
 			$.post("<?php echo base_url()?>index.php/saladelaimatge/guardaFrame", {num : $numframe})
 		});
 		
@@ -199,38 +242,42 @@
   </script>
 </head>
 <body>
-<div id="res"><div>
 	<!-- menú superior dreta -->
-	<div class="capcaleratitol"><?php echo($titol);?></div>
-	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
-	<div class="capcalerabarra right">I</div>
-	<div class="capcalerausername right"><?php echo($username); ?></div>
-	<br/><br/>
-	<a class="capcalerahome right" href="home">^</a>
-	<div class="capcalerabarra right">I</div>
-	<?php if($salanext != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+	<div class="titolbox">
+		<div class="capcaleratitol"><?php echo($titol);?></div>
+		<a class="capcalerasortir right" href="home/logout">SORTIR</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
-	<?php if($salaprev != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+		<div class="capcalerausername right"><?php echo($username); ?></div>
+		<br/><br/>
+		<a class="capcalerahome right" href="home">sales</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
-	
+		<?php if($salanext != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+		<?php if($salaprev != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+	</div>
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- filtra -->
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat1fet == false) {?>
-			<img id="saladelaimatgeimatgefiltra" class="contingutsimatge60percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>" />
-			<img id="saladelaimatgefiltre1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre1.jpg'; ?>" />
-			<img id="saladelaimatgefiltre2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre2.jpg'; ?>" />
-			<img id="saladelaimatgefiltre3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre3.jpg'; ?>" />
-			<form style="position:relative; margin-top:2%; margin-left:2%">
-				<input id="saladelaimatgefiltreok" type="button" value="ok"/>
-			</form>
-			<div style="margin-top:5%"></div>
+			<div>
+				<img id="saladelaimatgeimatgefiltra" class="contingutsimatge90percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtra01.jpg'; ?>" />
+			</div>
+			<div style="clear:both">
+				<div class="contingutstexttitolresposta">Filtres:</div>
+				<img id="saladelaimatgefiltre1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre1.jpg'; ?>" />
+				<img id="saladelaimatgefiltre2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre2.jpg'; ?>" />
+				<img id="saladelaimatgefiltre3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/filtre3.jpg'; ?>" />
+				<form>
+					<input id="saladelaimatgefiltreok" type="button" value="ok"/>
+				</form>
+			</div style="clear:both">
 			<div class="contingutstexttitolresposta" id="resultatfiltres"></div>
 			<div class="contingutsboxresposta" id="resultatfiltre1"></div>
 			<div class="contingutsboxresposta" id="resultatfiltre2"></div>
@@ -249,34 +296,34 @@
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat2fet == false) {?>
-			<div style="clear:both">
-				<img class="contingutsimatge50percent" id="graffiti" src=""/>
-				<form style="margin-top:2%">
-					<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
-					<div class="contingutsboxresposta" id="filenameagraffiti"></div>
-					<textarea class="contingutstextformrequadre" id="saladelaimatgegraffitiperque" name="saladelaimatgegraffitiperque"></textarea>
-					<input id="saladelaimatgegraffitiok" type="button" value="ok" style="margin-top:3%"/>
+			<div>
+				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
+				<div class="contingutsboxresposta" id="filenameagraffiti"></div>
+				<textarea class="contingutstextformrequadre" id="saladelaimatgegraffitiperque" name="saladelaimatgegraffitiperque"></textarea>
+				<form>
+					<input id="saladelaimatgegraffitiok" type="button" value="ok"/>
 				</form>
+				<img class="contingutsimatge50percent" id="graffiti" src="" onerror='this.style.display = "none"'/>
 			</div>
 			<div style="clear:both">
 				<div class="contingutstexttitolresposta">Què han trobat pel carrer els altres artístes?</div>
-				<img class="contingutsimatge30percent" id="resultatgraffitisimg1" src=""/>
-				<img class="contingutsimatge30percent" id="resultatgraffitisimg2" src=""/>
-				<img class="contingutsimatge30percent" id="resultatgraffitisimg3" src=""/>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg1" src="" onerror='this.style.display = "none"'/>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg2" src="" onerror='this.style.display = "none"'/>
+				<img class="contingutsimatge30percent" id="resultatgraffitisimg3" src="" onerror='this.style.display = "none"'/>
 			</div>
 		<?php } else { ?>
-			<div style="clear:both">
+			<div>
 				<div class="contingutstexttitolresposta">El teu graffiti</div>
 				<div class="contingutsboxresposta"><?php echo($perquegraffitipropi); ?></div>
 				<img class="contingutsimatge50percent" src="<?php echo base_url().'files/'.$graffitipropi; ?>" />
 			</div>
-			<div style="clear:both">
+			<div>
 				<div class="contingutstexttitolresposta">Els tres últims graffitis</div>
 				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti1; ?>" />
 				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti2; ?>" />
 				<img class="contingutsimatge30percent" src="<?php echo base_url().'files/'.$graffiti3; ?>" />
 			</div>
-			<div style="clear:both">
+			<div>
 				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti1); ?></div>
 				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti2); ?></div>
 				<div class="contingutsboxresposta30percent"><?php echo($perquegraffiti3); ?></div>
@@ -286,33 +333,38 @@
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat3fet == false) {?>
-			<div style="margin-top:2%">
-				<video id="videosilenci" class="video-js vjs-default-skin" controls preload="auto" width="512" height="211" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
-					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+			<div id="videodiv" style="margin-top:20px">
+				<video id="videosilenci" width="900" height="506" controls preload="auto" data-setup="{}">
+					<source src="<?php echo base_url().'/assets/images/clip-triaframe.mp4'; ?>" type='video/mp4' />
 				</video>
-				<form>
-					<input id="saladelaimatgefotogramaok" type="button" value="ok"/>
-				</form>
 			</div>
-			<div style="clear:both">
-				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma1.png'; ?>" />
-				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma2.png'; ?>" />
-				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma3.png'; ?>" />
-				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma4.png'; ?>" />
+			<div style="margin-top:20px">
+				<img class="contingutsimatge30percent" id="saladelaimatgefotogramatriat" src="" onerror='this.style.display = "none"'/>
+				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame1.png'; ?>" />
+				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame2.png'; ?>" />
+				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame3.png'; ?>" />
+				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame4.png'; ?>" />
+				<img id="saladelaimatgefotograma5" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame5.png'; ?>" />
+				<img id="saladelaimatgefotograma6" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame6.png'; ?>" />
 			</div>
+			<form>
+				<input id="saladelaimatgefotogramaok" type="button" value="ok"/>
+			</form>
 		<?php } else { ?>
-			<div style="margin-top:2%">
-				<video id="videosilenci" class="video-js vjs-default-skin" controls preload="auto" width="512" height="211" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}">
-					<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+			<div>
+				<video id="videosilenci" width="800" height="480" controls preload="auto" data-setup="{}">
+					<source src="<?php echo base_url().'/assets/images/clip-triaframe.mp4'; ?>" type='video/mp4' />
 				</video>
 			</div>
-			<div style="clear:both">
+			<div>
 				<div class="contingutstexttitolresposta">Quin fotograma vas triar?</div>
 				<div class="contingutsboxresposta">Vas triar el número <?php echo($fotogramapropi); ?></div>
-				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma1.png'; ?>" />
-				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma2.png'; ?>" />
-				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma3.png'; ?>" />
-				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/fotograma4.png'; ?>" />
+				<img id="saladelaimatgefotograma1" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame1.png'; ?>" />
+				<img id="saladelaimatgefotograma2" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame2.png'; ?>" />
+				<img id="saladelaimatgefotograma3" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame3.png'; ?>" />
+				<img id="saladelaimatgefotograma4" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame4.png'; ?>" />
+				<img id="saladelaimatgefotograma5" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame5.png'; ?>" />
+				<img id="saladelaimatgefotograma6" class="contingutsimatge15percent" src="<?php echo base_url().'/assets/images/saladelaimatge/frame6.png'; ?>" />
 			</div>
 		<?php } ?>
 	</div>

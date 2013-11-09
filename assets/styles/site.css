@@ -19,40 +19,36 @@
 		 url('../fonts/TomatoRoundCondensed-Thin.eot'); /* IE9 */
 }
 
-
-
-
 .loginbox {
     background-color: rgba(255,255,255,0.8);
     position : absolute;
 	left : 50%;
 	top : 30%;
-	
+	margin-left: -15%;
+
 	-moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    
+    -webkit-border-radius: 20px;    
 	border-radius: 20px;
     padding:20px;
 	
-	min-width : 25%;
-	min-height: 15%;
-	margin-left: -15%;
+	width : 400px;
+	min-height: 100px;
 }
 
-a:link {font-family: 'Alsina', serif; font-size:140%; color:rgb(0,0,0); text-decoration: none}
-a:visited {font-family: 'Alsina', serif; font-size:140%; color:rgb(0,0,0); text-decoration: none}
-a:hover {font-family: 'Alsina', serif; font-size:140%; color:rgb(80,80,80); text-decoration: none}
-a:active {font-family: 'Alsina', serif; font-size:140%; color:rgb(0,0,0); text-decoration: none}
+a:link {font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none}
+a:visited {font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none}
+a:hover {font-family: 'Alsina', serif; font-size:22px; color:rgb(80,80,80); text-decoration: none}
+a:active {font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none}
 
-.loginform{font-family: 'Alsina', serif; font-size:120%;}
-.loginformmaj{font-family: 'Alsina', serif; font-size:120%;}
-.loginerror{font-family: 'Tomato', serif; font-weight:bold; color:rgb(250,0,0);  font-size:100%;}
+.loginform{font-family: 'Alsina', serif; font-size:22px;}
+.loginformmaj{font-family: 'Alsina', serif; font-size:22px;}
+.loginerror{font-family: 'Alsina', serif; font-weight:bold; color:rgb(250,0,0);  font-size:20px;}
 
 input[type="text"]{
-	width:50%;
+	width:200px;
 	margin-right:10px; 
 	background-color:transparent;
-	font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:18px; color:rgb(0,0,0); text-decoration: none;
 	border:2px;
 	border-style:solid;
 	border-color:#000000 #000000;
@@ -63,10 +59,10 @@ input[type="text"]:focus{
 }
 
 input[type="password"]{
-	width:50%;
+	width:200px;
 	margin-right:10px; 
 	background-color:transparent;
-	font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:18px; color:rgb(0,0,0); text-decoration: none;
 	border:2px;
 	border-style:solid;
 	border-color:#000000 #000000;
@@ -79,179 +75,141 @@ input[type="password"]:focus{
 #submitinici {
 	background-color:transparent;
 	float:right;
-	width: 50%;
+	width: 200px;
 	height: 100%;
 	border: none;
 	margin: 0;
 	padding: 0;
-	font-family: 'Alsina', serif; font-size:140%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none;
 	outline: 0;
 }
 
 
-
-
 .capcaleratitol{
-	font-family: 'Alsina', serif; font-size:160%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:26px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-    margin-top:3%;
-    margin-right:10%;
-    padding:0px;
+	margin-right:0px;
 }
 .capcalerausername{
-	font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none; 
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none; 
 	text-transform:uppercase;
 	text-align:right;
-	padding-top:2px;
+	margin-top:5px;
 }
 .capcalerabarra{
-	font-family: 'Alsina', serif; font-size:150%; color:rgb(100,100,100); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(100,100,100); text-decoration: none;
+	margin-top:5px;
 	margin-right:5px;
 	margin-left:5px;
 	text-align:right;
 }
 .capcalerasortir:link{
-	font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-top:5px;
+	margin-right:0px;
 }
 .capcalerasortir:visited{
-	font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 .capcalerasortir:hover{
-	font-family: 'Alsina', serif; font-size:120%; color:rgb(80,80,80); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(80,80,80); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 .capcalerasortir:active{
-	font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 
 .capcalerahome:link{
-	font-family: 'Alsina', serif; font-size:130%; color:rgb(0,0,0); text-decoration: none; font-weight:bold;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 .capcalerahome:visited{
-	font-family: 'Alsina', serif; font-size:130%; color:rgb(0,0,0); text-decoration: none; font-weight:bold;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 .capcalerahome:hover{
-	font-family: 'Alsina', serif; font-size:130%; color:rgb(80,80,80); text-decoration: none; font-weight:bold;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(80,80,80); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 .capcalerahome:active{
-	font-family: 'Alsina', serif; font-size:130%; color:rgb(0,0,0); text-decoration: none; font-weight:bold;
+	font-family: 'Alsina', serif; font-size:20px; color:rgb(0,0,0); text-decoration: none;
 	text-align:right;
-	margin-right:10%;
-	padding-top:2px;
+	margin-right:0px;
+	margin-top:5px;
 }
 
 .right { float: right }
 .left { float: left }
 
 a.capcalerafletxa:link{
-	font-family: 'Tomato', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none; 
+	font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none; 
 	text-align:right;
-	padding-top:6px;
+	margin-top:5px;
 }
 a.capcalerafletxa:visited {
-	font-family: 'Tomato', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none; 
+	font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none; 
 	text-align:right;
-	padding-top:6px;
+	margin-top:5px;
 }
 a.capcalerafletxa:hover{
-	font-family: 'Tomato', serif; font-size:120%; color:rgb(80,80,80); text-decoration: none; 
+	font-family: 'Alsina', serif; font-size:22px; color:rgb(80,80,80); text-decoration: none; 
 	text-align:right;
-	padding-top:6px;
+	margin-top:5px;
 }
 a.capcalerafletxa:active{
-	font-family: 'Tomato', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none; 
+	font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none; 
 	text-align:right;
-	padding-top:6px;
+	margin-top:5px;
 }
 
 
 
 
-
-
-
-.saladelso {
-	position:fixed;
-	width:7%;
-	height:22%;
-	top:12%;
-	left:35%;
-	background:transparent;
-	border:0px;
-	text-align:left;
-	font-family: 'Alsina', serif; font-size:150%; color:rgb(0,0,0); text-decoration: none;
+.titolbox{
+    background-color: rgba(255,255,255,0);
+    position : absolute;
+	left:900px;
+	top:20px;
+	width:300px;
+	padding-left:0px;
 }
-.saladelso:hover{
-	background:blue;
-}
-
-.saladelaimatge {
-	position:fixed;
-	width:15%;
-	height:30%;
-	top:8%;
-	left:45%;
-	background:transparent;
-	border:0px;
-	text-align:left;
-	font-family: 'Alsina', serif; font-size:150%; color:rgb(0,0,0); text-decoration: none;
-}
-.saladelaimatge:hover{
-	background:green;
-}
-
-.saladeljo {
-	position:fixed;
-	width:15%;
-	height:15%;
-	top:30%;
-	left:6  5%;
-	background:blue;
-	border:0px;
-	text-align:left;
-	font-family: 'Alsina', serif; font-size:150%; color:rgb(0,0,0); text-decoration: none;
-}
-
-
-
-
-
 
 .contingutsbox{
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255,255,255,0);
     position : absolute;
-	left:5%;
-	top:8%;
-	width:60%;
-	min-height:15%;
-	padding-left:3%; padding-top:1%;
+	left:20px;
+	top:20px;
+	width:1000px;
+	padding-left:10px;
 }
 
+
 .contingutstitol{
-    font-family: 'Alsina', serif; font-size:120%; color:rgb(0,0,0); text-decoration: none;
+    font-family: 'Alsina', serif; font-size:26px; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
 	clear:both;
-	margin-top:2%;
+	margin-top:20px;
+}
+
+.contingutssubtitol{
+    font-family: 'Alsina', serif; font-size:24px; color:rgb(0,0,0); text-decoration: none;
+	text-align:left;
+	margin-top:20px;
 }
 
 .contingutsboxwc{
@@ -264,9 +222,9 @@ a.capcalerafletxa:active{
 
 div.hr{
 	background: rgba(255,255,255,0.6) no-repeat scroll center;
-	margin-left:-2px;
-	margin-right:5%;
-	width:95%;
+	margin-left:2px;
+	margin-right:2px;
+	width:1000px;
 	height:3px;
 	clear:both;	
 }
@@ -277,48 +235,67 @@ div.hr hr{
 .contingutsimatge50percent{
     position:relative;
 	left:0px;
-	margin-top:2%;
-	margin-bottom:5%;
-	margin-right:5%;
-	width:40%;
+	margin-top:10px;
+	margin-bottom:30px;
+	margin-right:10px;
+	width:500px;
 	float:left;
 }
 
 .contingutsimatge60percent{
     position:relative;
 	left:0px;
-	margin-top:2%;
-	margin-bottom:5%;
-	margin-right:5%;
-	width:50%;
+	margin-top:10px;
+	margin-bottom:30px;
+	margin-right:10px;
+	width:600px;
+	float:left;
+}
+
+.contingutsimatge90percent{
+    position:relative;
+	left:0px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:10px;
+	width:900px;
 	float:left;
 }
 
 .contingutsimatge30percent{
     position:relative;
 	left:0px;
-	margin-top:2%;
-	margin-bottom:5%;
-	margin-right:5%;
-	width:20%;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:10px;
+	width:300px;
+	float:left;
+}
+
+.contingutsimatge20percent{
+    position:relative;
+	left:0px;
+	margin-top:10px;
+	margin-bottom:30px;
+	margin-right:10px;
+	width:200px;
 	float:left;
 }
 
 .contingutsimatge15percent{
     position:relative;
-	margin-top:2%;
-	margin-bottom:5%;
-	margin-right:2%;
-	width:10%;
+	margin-right:10px;
+	margin-bottom:20px;
+	width:150px;
 	float:left;
 }
 
 input.contingutstextform50percent{
 	position:relative;
-	width:40%;
-	margin-top:2%;
+	width:400px;
+	margin-top:10px;
 	background-color:rgba(255,255,255,255);
-	font-family: 'Alsina', serif; font-size:100%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:18px; color:rgb(0,0,0); text-decoration: none;
 	border:0px;
 	border-color:#000000 #000000;
 }
@@ -328,21 +305,29 @@ input.contingutstextform50percent:focus{
 
 input.contingutstextform100percent{
 	position:relative;
-	width:80%;
-	background-color:rgba(255,255,255,100);
-	font-family: 'Alsina', serif; font-size:100%; color:rgb(0,0,0); text-decoration: none;
+	width:900px;
+	margin-top:10px;
+	background-color:rgba(255,255,255,255);
+	font-family: 'Alsina', serif; font-size:18px; color:rgb(0,0,0); text-decoration: none;
 	border:0px;
 	border-color:#000000 #000000;
-	float:left;
+}
+input.contingutstextform100percent:focus{
+	outline: 0;
+}
+
+input[type=number]:invalid {
+    background-color: #FFCCCC;
 }
 
 .contingutstextformrequadre{
 	position:relative;
-	width:40%;
-	height:30%;
-	margin-top:2%;
+	width:380px;
+	height:200px;
+	margin-top:10px;
+	margin-bottom:10px;
 	background-color:rgba(255,255,255,255);
-	font-family: 'Alsina', serif; font-size:100%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:18px; color:rgb(0,0,0); text-decoration: none;
 	border:0px;
 	border-color:#000000 #000000;
 	text-align:left;
@@ -355,55 +340,154 @@ input.contingutstextform100percent{
 	outline: 0;
 }
 
-input.contingutstextform100percent:focus{
-	outline: 0;
-}
-
 .contingutstexttitolresposta{
 	position:relative;
-	margin-top:2%;
-    font-family: 'Alsina', serif; font-size:110%; color:rgb(140,140,120); text-decoration: none;
-	text-align:left;
-	margin-bottom:2px;
+	margin-top: 15px;
+    font-family: 'Alsina', serif; font-size:24px; color:rgb(140,140,120); text-decoration: none;
+	text-align: left;
 }
 
 .contingutsboxresposta{
 	position:relative;
-	margin-right:5%;
-    font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
-	text-align:left;
+	margin-right:10px;
+    font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none;
+	text-align: left;
 }
 
 .contingutsboxresposta30percent{
 	position:relative;
-	margin-left:0%;
-	margin-top:-5%;
-	width:25%;
-    font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
+	margin-left:0;
+	margin-top:10px;
+	width:300px;
+    font-family: 'Alsina', serif; font-size:22px; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
 	float:left;
 }
 
 .contingutsboxrespostawc{
 	position:relative;
-	margin-right:5%;
-    font-family: 'Alsina', serif; font-size:140%; color:rgb(140,140,120); text-decoration: none;
+	margin-right:10px;
+    font-family: 'Alsina', serif; font-size:32px; color:rgb(140,140,120); text-decoration: none;
 	text-align:left;
 }
 
 .contingutsetiqueta{
-	font-family: 'Alsina', serif; font-size:110%; color:rgb(0,0,0); text-decoration: none;
-	text-align:left;
-}
-
-.choosefileboto{
-    font-family: 'TomatoThin', serif; font-size:80%; color:rgb(0,0,0); text-decoration: none;
+	font-family: 'Alsina', serif; font-size:24px; color:rgb(0,0,0); text-decoration: none;
 	text-align:left;
 }
 
 audio {
 	position:relative;
-	margin-top:2%;
-	margin-right:5%;
+	margin-top:10px;
+	margin-right:10px;
 	float:left;
+}
+
+
+.mapasales{
+    position : absolute;
+	left:0px;
+	top:0px;
+}
+
+.saladelesparaulesbox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:170px;
+	top:150px;
+	width:230px;
+	height:80px;
+}
+
+.saladelsobox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:450px;
+	top:200px;
+	width:70px;
+	height:100px;
+}
+
+.saladelaimatgebox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:580px;
+	top:170px;
+	width:100px;
+	height:130px;
+}
+
+.saladeljobox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:800px;
+	top:280px;
+	width:200px;
+	height:40px;
+}
+
+.bibliotecabox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:310px;
+	top:485px;
+	width:150px;
+	height:110px;
+}
+
+.exposicioglobalbox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:470px;
+	top:400px;
+	width:150px;
+	height:70px;
+}
+
+.saladeldolorilafelicitatbox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:630px;
+	top:445px;
+	width:130px;
+	height:120px;
+}
+
+.wcbox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:790px;
+	top:440px;
+	width:50px;
+	height:50px;
+}
+
+.lamevaexposiciobox{
+    background-color: rgba(255,255,255,0);
+	position : absolute;
+	left:880px;
+	top:480px;
+	width:150px;
+	height:100px;
+}
+
+a.mapa:link{
+	font-family: 'Alsina', serif; font-size:28px; color:rgb(0,0,0); text-decoration: none; 
+	text-align:right;
+	margin-top:5px;
+}
+a.mapa:visited {
+	font-family: 'Alsina', serif; font-size:28px; color:rgb(0,0,0); text-decoration: none; 
+	text-align:right;
+	margin-top:5px;
+}
+a.mapa:hover{
+	font-family: 'Alsina', serif; font-size:28px; color:rgb(80,80,80); text-decoration: none; 
+	text-align:right;
+	margin-top:5px;
+}
+a.mapa:active{
+	font-family: 'Alsina', serif; font-size:28px; color:rgb(80,80,80); text-decoration: none; 
+	text-align:right;
+	margin-top:5px;
 }

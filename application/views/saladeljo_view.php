@@ -51,24 +51,24 @@
   </script>
 </head>
 <body>
-	<div id="res"></div>
 	<!-- menú superior dreta -->
-	<div class="capcaleratitol"><?php echo($titol);?></div>
-	<a class="capcalerasortir right" href="home/logout">SORTIR</a>
-	<div class="capcalerabarra right">I</div>
-	<div class="capcalerausername right"><?php echo($username); ?></div>
-	<br/><br/>
-	<a class="capcalerahome right" href="home">^</a>
-	<div class="capcalerabarra right">I</div>
-	<?php if($salanext != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+	<div class="titolbox">
+		<div class="capcaleratitol"><?php echo($titol);?></div>
+		<a class="capcalerasortir right" href="home/logout">SORTIR</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
-	<?php if($salaprev != NULL){ ?>
-		<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+		<div class="capcalerausername right"><?php echo($username); ?></div>
+		<br/><br/>
+		<a class="capcalerahome right" href="home">sales</a>
 		<div class="capcalerabarra right">I</div>
-	<?php } ?>
-	
+		<?php if($salanext != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salanext); ?>">></a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+		<?php if($salaprev != NULL){ ?>
+			<a class="capcalerafletxa right" href="<?php echo($salaprev); ?>"><</a>
+			<div class="capcalerabarra right">I</div>
+		<?php } ?>
+	</div>
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- autoretrat -->
@@ -78,9 +78,9 @@
 			<form>
 				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
 				<input id="saladeljoautoretratok" type="button" value="ok"/>
-				<img class="contingutsimatge60percent" id="autorretratimatge" src=""/>
-				<div class="contingutsboxresposta" id="filenameautorretrat"></div>
 			</form>
+				<img class="contingutsimatge60percent" id="autorretratimatge" src="" onerror='this.style.display = "none"'/>
+				<div class="contingutsboxresposta" id="filenameautorretrat"></div>
 		<?php } else { ?>
 			<div class="contingutstexttitolresposta">El teu autorretrat</div>
 			<img class="contingutsimatge50percent" src="<?php echo base_url().'files/'.$autoretratpropi; ?>" />

@@ -57,6 +57,11 @@
 			$data['soperillpropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,221);
 			$data['soperillpropifilename'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 2,22);
 			
+			$data['segonpropi'] = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 2,3);
+			$segon = $this->respostes->getLaMevaRespostaEtiqueta($session_data['username'], 2,3);
+			$segon = $segon + 1 - 1; // manipulació per convertir l'string a int
+			$data['segonaltres'] = $this->respostes->getPercentatgeEtiqueta($segon, 2,3);
+			
 			$data['bandasonorapropi'] = $this->respostes->getLaMevaRespostaText($session_data['username'], 2,4);
 			$data['bandasonoraaltres'] = $this->respostes->getAltresRespostaText($session_data['username'], 2,4);
 						
@@ -133,7 +138,7 @@
 		$origname = "";
 
 		$config['upload_path'] = './files/';
-		$config['allowed_types'] = 'ogg|mp3';
+		$config['allowed_types'] = 'mp3';
 		$config['max_size']  = 1024 * 8;
 		$config['encrypt_name'] = TRUE;
 
@@ -166,7 +171,7 @@
 		$origname = "";
 
 		$config['upload_path'] = './files/';
-		$config['allowed_types'] = 'ogg|mp3';
+		$config['allowed_types'] = 'mp3';
 		$config['max_size']  = 1024 * 8;
 		$config['encrypt_name'] = TRUE;
 
@@ -201,6 +206,13 @@
 		
 		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 2, 4);
 		
+		echo $str;
+	}
+	
+	function guardarSegon(){
+		$session_data = $this->session->userdata('logged_in');
+		$str = $this->respostes->getPercentatgeEtiqueta($this->input->post('seg'), 2,3);
+		$this->respostes->guardarValor($this->input->post('seg'), $session_data['username'], 2,3);
 		echo $str;
 	}
 }
