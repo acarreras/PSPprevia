@@ -491,3 +491,31 @@ a.mapa:active{
 	text-align:right;
 	margin-top:5px;
 }
+
+.quadreesq{
+    position : absolute;
+	left:30px;
+	top:100px;
+}
+
+.quadrecentral{
+    position : absolute;
+	left:300px;
+	top:80px;
+}
+
+.imgquadreesq{
+    position : absolute;
+	left:43px;
+	top:121px;
+	width: 227px;
+	height: 290px;
+}
+
+.imgquadrecentral{
+    position : absolute;
+	left:316px;
+	top:94px;
+	width: 493px;
+	height: 354px;
+}

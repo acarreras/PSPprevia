@@ -42,6 +42,14 @@
 	</div>
 	<!-- continguts -->
 	<div class="contingutsbox">
+		<img class="quadrecentral" src="<?php echo base_url().'/assets/images/exposicioglobal/marccentral.png'; ?>" />
+		<?php if($bautorretrat == true){ ?>
+			<img class="imgquadrecentral" src="<?php echo base_url().'files/'.$autoretratpropi; ?>" />
+		<?php } ?>
+		<img class="quadreesq" src="<?php echo base_url().'/assets/images/exposicioglobal/marcesquerra.png'; ?>" />
+		<?php if($bgraffiti == true){ ?>
+			<img class="imgquadreesq" src="<?php echo base_url().'files/'.$graffitipropi; ?>" />
+		<?php } ?>
 	</div>
 </body>
 </html>

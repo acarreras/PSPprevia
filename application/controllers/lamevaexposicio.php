@@ -22,7 +22,16 @@
 				$data['salanext'] = $row->salanext;
 				$data['salaprev'] = $row->salaprev;
 			}
-						
+			
+			$data['bautorretrat'] = $this->respostes->bapartatJaFet($session_data['username'], 3,1);
+			if($this->respostes->bapartatJaFet($session_data['username'], 3,1) == true){
+				$data['autoretratpropi'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 3,1);
+			}
+			$data['bgraffiti'] = $this->respostes->bapartatJaFet($session_data['username'], 4,2);
+			if($this->respostes->bapartatJaFet($session_data['username'], 4,2) == true){
+				$data['graffitipropi'] = $this->respostes->getLaMevaRespostaFitxer($session_data['username'], 4,2);
+			}
+			
 			$this->load->view('lamevaexposicio_view', $data);
 		}
 		else
