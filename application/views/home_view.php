@@ -30,12 +30,6 @@
   </script>
 </head>
 <body>
-	<!-- menú superior dreta -->
-	<div class="titolbox">
-		<a class="capcalerasortir right" href="home/logout">SORTIR</a>
-		<div class="capcalerabarra right">I</div>
-		<div class="capcalerausername right"><?php echo($username); ?></div>
-	</div>
 	<!-- pinzellades -->
 	<img class="mapasales" src="<?php echo base_url().'/assets/images/fons/mapa-sales.png'; ?>" />
 	<?php if($bsala1feta == true){ ?>
@@ -61,7 +55,7 @@
 	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaLAMEVAEXPOover.png'; ?>" />
 	<!-- text presentacio -->
 	<div class="contingutsboxresposta">
-	  <span>Hola,</span> <span>soc la I,</span> <span>la que va anar a K,</span> <span>sí!</span></br>
+	  <span>Hola,</span> <span style="text-transform:uppercase;"><?php echo($username); ?>,</span> <span>soc la I.,</span> <span>la que va anar a K.,</span> <span>sí!</span></br>
 	  <span>Si jo fos pintora...</span> <span>com R,</span> <span>sabeu aquell</span> <span>que diuen que mantenia</span> <span>l'univers tot blanc</span></br>
 	  <span>Si jo fos pintora</span> <span>potser</span> <span>tot seria</span> <span>més fàcil</span> <span>Ajudeu-me a representar</span> <span> el DOLOR</span> <span>i la FELICITAT!</span>
 	</div>
