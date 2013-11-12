@@ -92,8 +92,14 @@
 			$this->respostes->guardarText($origname, $session_data['username'], 3, 11);
 			$this->respostes->guardaFilename($filename, $session_data['username'], 3, 1);
 		}
+		
+		$img1 = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 3,1);
+		$img2 = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 3,1);
+		$img3 = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 3,1);
+			
 		@unlink($_FILES[$file_element_name]);
-		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $filename));
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $filename,
+								'img1' => $img1, 'img2' => $img2, 'img3' => $img3));
 	}
 }
 ?>

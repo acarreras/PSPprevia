@@ -54,6 +54,8 @@
 			<div class="capcalerabarra right">I</div>
 		<?php } ?>
 	</div>
+	<!-- porta -->
+	<img class="imgportawc" src="<?php echo base_url().'assets/images/wc/wcporta.png'; ?>" />
 	<!-- continguts -->
 	<div class="contingutsbox">
 		<!-- escriu a la porta del wc -->

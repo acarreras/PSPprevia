@@ -17,8 +17,20 @@
 	<script src="<?php echo base_url().'js/ajaxfileupload.js'; ?>"></script>
 	<script> 
     // using JQUERY's 
-    $(document).ready(function () {
-		// set an on click on the button per a guardar el titol que hem posat a la imatge
+    $(document).ready(function () {	
+		$('#audiotranquilitat').hide();
+		$('#audioperill').hide();
+		$bhtml5 = false;
+		if(!!document.createElement('audio').canPlayType) {
+			$bhtml5 = true;// soporta html5
+		}
+		document.getElementById("so1").style.visibility = "hidden";
+		document.getElementById("so2").style.visibility = "hidden";
+		document.getElementById("so3").style.visibility = "hidden";
+		document.getElementById("so4").style.visibility = "hidden";
+		document.getElementById("so5").style.visibility = "hidden";
+		document.getElementById("so6").style.visibility = "hidden";
+		
 		$("#saladelsotitula1ok").click(function () {
 			$.post("<?php echo base_url()?>index.php/saladelso/guardarTitolSo1", {titol : $("#saladelsotitula1").val()})
 				.done(function(resultat1) {
@@ -92,6 +104,13 @@
 					}
 					else if(data.status == 'success'){
 						$('#filenametranquilitat').html("So " + data.filename + " guardat correctament");
+						$('#formtranquilitat').hide();
+						$('#audiotranquilitat').show();
+						$("#audiofilenametranquilitatsource").attr('src', '<?php echo base_url()?>files/' + data.file);
+						$("#audiofilenametranquilitatembed").attr('src', '<?php echo base_url()?>files/' + data.file);
+						$('#audiotranquilitatsrc').load();
+						$("#sotranquilitat").attr('src', '<?php echo base_url()?>files/' + data.file);
+						$('#sotranquilitat').load();						
 					}
 				}
 			});
@@ -114,7 +133,12 @@
 					}
 					else if(data.status == 'success'){
 						$('#filenameperill').html("So " + data.filename + " guardat correctament");
-					}
+						$('#formperill').hide();
+						$('#audioperill').show();
+						$("#audiofilenameperillsource").attr('src', '<?php echo base_url()?>files/' + data.file);
+						$("#audiofilenameperillembed").attr('src', '<?php echo base_url()?>files/' + data.file);
+						$('#audioperillsrc').load();
+					}					
 				}
 			});
 			return false;
@@ -150,8 +174,16 @@
 		<!-- so 1 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/01_Bomba.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/01_Bomba.ogg'; ?>" type="audio/ogg">
 			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/01_Bomba.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so1" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/01_Bomba.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat11fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula1" name="saladelsotitula1"/>
@@ -159,14 +191,22 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso1"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso1propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso1resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso1propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso1resposta); ?></div>
 		<?php } ?>
 		<!-- so 2 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/02_Petard.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/02_Petard.ogg'; ?>" type="audio/ogg">
 			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/02_Petard.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so2" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/02_Petard.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat12fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula2" name="saladelsotitula2"/>
@@ -174,14 +214,22 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso2"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso2propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso2resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso2propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso2resposta); ?></div>
 		<?php } ?>
 		<!-- so 3 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/03_Tro.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/03_Tro.ogg'; ?>" type="audio/ogg">
 			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/03_Tro.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so3" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/03_Tro.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat13fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula3" name="saladelsotitula3"/>
@@ -189,14 +237,22 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso3"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso3propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso3resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso3propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso3resposta); ?></div>
 		<?php } ?>
 		<!-- so 4 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>" type="audio/mpeg">
-			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>">
+			<source src="<?php echo base_url().'assets/audio/04_Escopeta.ogg'; ?>" type="audio/ogg">
+			<embed autostart="false" height="20" width="400" src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so4" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/04_Escopeta.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat14fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula4" name="saladelsotitula4"/>
@@ -204,14 +260,22 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso4"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso4propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso4resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso4propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso4resposta); ?></div>
 		<?php } ?>
 		<!-- so 5 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/05_Globo.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/05_Globo.ogg'; ?>" type="audio/ogg">
 			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/05_Globo.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so5" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/05_Globo.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat15fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula5" name="saladelsotitula5"/>
@@ -219,14 +283,22 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso5"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso5propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso5resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso5propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso5resposta); ?></div>
 		<?php } ?>
 		<!-- so 6 -->
 		<audio controls="controls">
 			<source src="<?php echo base_url().'assets/audio/06_Roda.mp3'; ?>" type="audio/mpeg">
+			<source src="<?php echo base_url().'assets/audio/06_Roda.ogg'; ?>" type="audio/ogg">
 			<embed height="20" width="400" src="<?php echo base_url().'assets/audio/06_Roda.mp3'; ?>">
+			<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 		</audio>
+		<?php if ($bhtml5 == false) {?>
+			<div style="margin-top:20px">
+				<embed id="so6" height="15" width="300" autostart="false" src="<?php echo base_url().'assets/audio/06_Roda.mp3'; ?>">
+				<param name="AutoStart" value="0"> 
+			</div>
+		<?php } ?>
 		<?php if ($bapartat16fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelsotitula6" name="saladelsotitula6"/>
@@ -234,8 +306,8 @@
 			</form>
 				<div class="contingutsboxresposta" id="resultattitolso6"></div>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas dir que era? <?php echo($titolso6propi); ?></div>
-			<div class="contingutstexttitolresposta">Què es? <?php echo($titolso6resposta); ?></div>
+			<div class="contingutstexttitolresposta">La teva resposta: <?php echo($titolso6propi); ?></div>
+			<div class="contingutstexttitolresposta">Què és? <?php echo($titolso6resposta); ?></div>
 		<?php } ?>
 		<!-- grava tranquilitat i perill -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
@@ -243,31 +315,56 @@
 		<div class="contingutsboxresposta">(en .mp3)</div>
 		<div class="contingutssubtitol">. Que representi TRANQUILITAT</div>
 		<?php if ($bapartat21fet == false) {?>
-			<form>
+			<form id="formtranquilitat">
 				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
 				<input id="saladelsotranquilitatok" type="button" value="ok"/>
 			</form>
 			<div class="contingutsboxresposta" id="filenametranquilitat"></div>
+			<div id="audiotranquilitat">
+				<audio controls id="audiotranquilitatsrc" autoplay="autoplay">
+					<source id="audiofilenametranquilitatsource" src="" type="audio/mpeg">
+					<embed id="audiofilenametranquilitatembed" height="20" width="400" src="">
+					<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
+				</audio>
+				</br>
+			</div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Vas pujar el so <?php echo($sotranquilitatpropi); ?>. Escolta la tranquilitat </div>
-			<audio controls>
+			<div class="contingutsboxresposta">Escolta la tranquilitat:</div>
+			<audio controls loop="loop" autoplay="autoplay">
 				<source src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>" type="audio/mpeg">
 				<embed height="20" width="400" src="<?php echo base_url().'files/'.$sotranquilitatpropifilename; ?>">
+				<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 			</audio>
+			<?php if ($bhtml5 == false) {?>
+				<div style="clear:both" class="contingutsboxresposta">Uix! Aquest navegador no pot carregar els mp3</div>
+			<?php } ?>
+			</br>
 		<?php } ?>
 		<div class="contingutssubtitol">. Que representi PERILL</div>
 		<?php if ($bapartat22fet == false) {?>
-			<form>
+			<form id="formperill">
 				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
 				<input id="saladelsoperillok" type="button" value="ok"/>
 			</form>
 			<div class="contingutsboxresposta" id="filenameperill"></div>
+			<div id="audioperill">
+				<audio autoplay="autoplay" controls id="audioperillsrc">
+					<source id="audiofilenameperillsource" src="" type="audio/mpeg">
+					<embed id="audiofilenameperillembed" height="20" width="400" src="">
+				</audio>
+				</br>
+			</div>
 		<?php } else { ?>
-			<div class="contingutsboxresposta">Vas pujar el so <?php echo($soperillpropi); ?>. Fes play al perill </div>
-			<audio controls>
+			<div class="contingutsboxresposta">Play al perill: </div>
+			<audio controls loop="loop" autoplay="autoplay">
 				<source src="<?php echo base_url().'files/'.$soperillpropifilename; ?>" type="audio/mpeg">
 				<embed height="20" width="400" src="<?php echo base_url().'files/'.$soperillpropifilename; ?>">
+				<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar els audios :-(</div>
 			</audio>
+			<?php if ($bhtml5 == false) {?>
+				<div style="clear:both" class="contingutsboxresposta">Uix! Aquest navegador no pot carregar els mp3</div>
+			<?php } ?>
+			</br>
 		<?php } ?>
 		<!-- deixa en silenci -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
@@ -275,6 +372,7 @@
 		<div style="margin-bottom:20px; margin-top:20px">
 			<video id="videosilenci" width="900" height="506" controls preload="auto" data-setup="{}">
 				<source src="<?php echo base_url().'/assets/images/clip2-silenci.mp4'; ?>" type='video/mp4' />
+				<div class="contingutsboxresposta">Ops! Aquest navegador no pot carregar videos mp4 :-(</div>
 			</video>
 		</div>
 		<?php if ($bapartat3fet == false) {?>
@@ -302,9 +400,9 @@
 				<div class="contingutsboxresposta" id="resultatbandasonora"></div>
 			</form>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
+			<div class="contingutstexttitolresposta">Aquest és el teu tema: </div>
 			<div class="contingutsboxresposta"><?php echo($bandasonorapropi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutstexttitolresposta">Quins temes han triat els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($bandasonoraaltres); ?></div>
 		<?php } ?>
 	</div>

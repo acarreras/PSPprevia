@@ -31,6 +31,9 @@
 			<input type="text" id="galeria" name="galeria"/>
 			<label class="loginformmaj" for="galeria">GALERIA</label>
 			<br/><br/>
+			<input type="text" id="mail" name="mail"/>
+			<label class="loginformmaj" for="mail">MAIL (opcional)</label>
+			<br/><br/>
 			<input id="submitinici" type="submit" value="crea"/>
 			<a class="loginform" href="<?php echo ('login'); ?>">inici</a>
 		</form>

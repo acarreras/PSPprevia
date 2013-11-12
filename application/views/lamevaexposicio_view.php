@@ -17,7 +17,7 @@
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
-
+		$.post("<?php echo base_url()?>index.php/lamevaexposicio/salaVista", {faketext : 'vista'})
 	});
   </script>
 </head>

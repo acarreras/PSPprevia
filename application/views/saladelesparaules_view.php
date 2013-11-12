@@ -30,15 +30,15 @@
 			
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta1", {})
 				.done(function(percentatge1) {
-					$("#resultatetiqueta1").html("total d'entusiame: " + percentatge1);
+					$("#resultatetiqueta1").html("vots per impòtencia: " + percentatge1);
 				});
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta2", {})
 				.done(function(percentatge2) {
-					$("#resultatetiqueta2").html("total d'amistat: " + percentatge2);
+					$("#resultatetiqueta2").html("vots per fugida: " + percentatge2);
 				});
 			$.post("<?php echo base_url()?>index.php/saladelesparaules/percentatgeEtiqueta3", {})
 				.done(function(percentatge3) {
-					$("#resultatetiqueta3").html("total de familiar: " + percentatge3);
+					$("#resultatetiqueta3").html("vots per focalització: " + percentatge3);
 				});
 			
 		});
@@ -90,7 +90,7 @@
 		<!-- titula -->
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
-		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/titula01.jpg'; ?>" />
+		<img class="contingutsimatge60percent" src="<?php echo base_url().'/assets/images/saladelesparaules/titula01.jpg'; ?>" />
 		<?php if ($bapartat1fet == false) {?>
 			<form>
 				<input type="text" class="contingutstextform50percent" id="saladelesparaulestitula" name="saladelesparaulestitula"/>
@@ -99,54 +99,54 @@
 				<div class="contingutsboxresposta" id="resultattitols"></div>
 			</form>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
+			<div class="contingutstexttitolresposta">Aquest és el teu títol:</div>
 			<div class="contingutsboxresposta"><?php echo($titolimatgepropi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutstexttitolresposta">Què han escrit els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($titolimatgealtres); ?></div>
 		<?php } ?>
 		<!-- etiqueta -->
 		<div class="contingutstitol"><?php echo($titolapartat2); ?></div>
 		<div class="hr"><hr/></div>
-		<img class="contingutsimatge50percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.jpg'; ?>" />
+		<img class="contingutsimatge60percent" src="<?php echo base_url().'/assets/images/saladelesparaules/etiqueta01.jpg'; ?>" />
 		<?php if ($bapartat2fet == false) {?>
 		<form id="formetiquetes">
 			<div style="margin-top:2%"></div>
 			<input id="saladelesparaulesetiqueta1" name="etiqueta" type="radio" value="1"/>
-			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">entusiasme</label>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">impotència</label>
 			<div class="contingutstexttitolresposta" id="resultatetiqueta1"></div>
 			<input id="saladelesparaulesetiqueta2" name="etiqueta" type="radio" value="2"/>
-			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">amistat</label>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">fugida</label>
 			<div class="contingutstexttitolresposta" id="resultatetiqueta2"></div>
 			<input id="saladelesparaulesetiqueta3" name="etiqueta" type="radio" value="3"/>
-			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">familiar</label>
+			<label for="saladelesparaulesetiqueta1" class="contingutsetiqueta">focalització</label>
 			<div class="contingutstexttitolresposta"  id="resultatetiqueta3"></div>
 			<input id="saladelesparaulesetiquetaok" type="button" value="ok"/>
 		</form>
 		<?php } else { ?>
-			<div class="contingutstexttitolresposta">Què vas escriure tu?</div>
+			<div class="contingutstexttitolresposta">La teva etiqueta:</div>
 			<div class="contingutsboxresposta"><?php echo($etiquetapropia); ?></div>
-			<div class="contingutstexttitolresposta">Quins son els resultats globals?</div>
+			<div class="contingutstexttitolresposta">Quins són els resultats globals?</div>
 			<div class="contingutsboxresposta">
-				totals d'entusiasme: <?php echo($percentatgeetiqueta1); ?><br/>
-				totals d'amistat: <?php echo($percentatgeetiqueta2);  ?><br/>
-				totals de familiar: <?php echo($percentatgeetiqueta3); ?>
+				vots per impotència: <?php echo($percentatgeetiqueta1); ?><br/>
+				vots per fugida: <?php echo($percentatgeetiqueta2);  ?><br/>
+				vots per focalització: <?php echo($percentatgeetiqueta3); ?>
 			</div>
 		<?php } ?>
 		<!-- defineix guerra -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat31fet == false) {?>
-			<div class="contingutssubtitol">. Què tingui com a màxim 10 paraules</div>
+			<div class="contingutssubtitol">. Que tingui com a màxim 10 paraules</div>
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerra10paraules" name="saladelesparaulesdefineixguerra10paraules"/>
 				<input id="saladelesparaulesdefguerra1ok" type="button" value="ok"/>
-				<div class="contingutstexttitolresposta">Com ho han definit els altres galeristes?</div>
+				<div class="contingutstexttitolresposta">Com ho estan definint els altres participants?</div>
 				<div class="contingutsboxresposta" id="resultatdefguerra1"></div>
 			</form>
 		<?php } else{ ?>
-			<div class="contingutstexttitolresposta">Com ho vas definir en 10 paraules?</div>
+			<div class="contingutstexttitolresposta">La teva definició en 10 paraules:</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra1propi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutstexttitolresposta">Com ho estan definint els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra1altres); ?></div>
 		<?php } ?>
 		<?php if ($bapartat32fet == false) {?>
@@ -154,17 +154,17 @@
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerratecnic" name="saladelesparaulesdefineixguerratecnic"/>
 				<input id="saladelesparaulesdefguerra2ok" type="button" value="ok"/>
-				<div class="contingutstexttitolresposta">Com ho han definit els altres galeristes?</div>
+				<div class="contingutstexttitolresposta">Com ho estan definint els altres participants?</div>
 				<div class="contingutsboxresposta" id="resultatdefguerra2"></div>
 			</form>
 		<?php } else{ ?>
-			<div class="contingutstexttitolresposta">Com ho vas definir amb paraules tècniques o científiques?</div>
+			<div class="contingutstexttitolresposta">La teva definició tècnica i científica:</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra2propi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutstexttitolresposta">Com ho estan definint els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra2altres); ?></div>
 		<?php } ?>
 		<?php if ($bapartat33fet == false) {?>
-			<div class="contingutssubtitol">. Amb paraules que pugui entendre un nen petit</div>
+			<div class="contingutssubtitol">. Amb paraules que pugui entendre un nen</div>
 			<form>
 				<input type="text" class="contingutstextform100percent" id="saladelesparaulesdefineixguerranen" name="saladelesparaulesdefineixguerranen"/>
 				<input id="saladelesparaulesdefguerra3ok" type="button" value="ok"/>
@@ -172,9 +172,9 @@
 				<div class="contingutsboxresposta" id="resultatdefguerra3"></div>
 			</form>
 		<?php } else{ ?>
-			<div class="contingutstexttitolresposta">Com ho vas definir amb paraules de nen petit?</div>
+			<div class="contingutstexttitolresposta">La teva definiciço de nen:</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra3propi); ?></div>
-			<div class="contingutstexttitolresposta">Què van escriure els altres participants?</div>
+			<div class="contingutstexttitolresposta">Com ho estan definint els altres participants?</div>
 			<div class="contingutsboxresposta"><?php echo($defguerra3altres); ?></div>
 		<?php } ?>
 	</div>

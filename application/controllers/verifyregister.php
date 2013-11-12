@@ -11,9 +11,10 @@ class VerifyRegister extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|max_length[12]|is_unique[users.username]');
+		$this->form_validation->set_rules('username', 'Username', 'required|min_length[5]|max_length[12]|is_unique[users.username]|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|matches[password2]');
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('mail', 'Mail', 'valid_email|is_unique[users.mail]');
 
 		if($this->form_validation->run() == FALSE){
 			 //Field validation failed

@@ -116,7 +116,7 @@
 	
 	function guardarTitolSo5(){
 		$session_data = $this->session->userdata('logged_in');
-		$result = $this->respostes->getNomSo(2,14);
+		$result = $this->respostes->getNomSo(2,15);
 		$this->respostes->guardarText($this->input->post('titol'), $session_data['username'], 2, 15);
 		echo $result;
 	}
@@ -158,7 +158,7 @@
 			$this->respostes->guardaFilename($filename, $session_data['username'], 2, 21);
 		}
 		@unlink($_FILES[$file_element_name]);
-		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname));
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'file' => $filename));
 	}
 	
 	public function uploadFileSo2(){
@@ -191,7 +191,7 @@
 			$this->respostes->guardaFilename($filename, $session_data['username'], 2, 22);
 		}
 		@unlink($_FILES[$file_element_name]);
-		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname));
+		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'file' => $filename));
 	}
 	
 	function guardarBandaSonora(){

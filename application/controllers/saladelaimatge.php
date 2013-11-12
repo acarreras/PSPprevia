@@ -100,38 +100,45 @@
 		$origname = "";
 		$path = "";
 
-		$config['upload_path'] = './files/';
-		$config['allowed_types'] = 'jpg|gif|png';
-		$config['max_size']  = 1024 * 10;
-		$config['encrypt_name'] = TRUE;
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload($file_element_name)){
+		if (empty($_POST['title'])){
 			$status = "error";
-			$msg = $this->upload->display_errors('', '');
+			$msg = "Explica perquè has triat aquesta imatge?";
 		}
-		else{
-			$data = $this->upload->data();
-			$filename = $data['file_name']; // ok
-			$origname = $data['orig_name'];
-			$path = $data['full_path'];
-			$status = "success";
-			$msg = "file successfully uploaded";
-			$this->respostes->guardaFilename($filename, $session_data['username'], 4, 2);
-			$this->respostes->guardarText($origname, $session_data['username'], 4, 21);
-			$this->respostes->guardarText($_POST['title'], $session_data['username'], 4, 22);
+    
+		if ($status != "error"){
+			$config['upload_path'] = './files/';
+			$config['allowed_types'] = 'jpg|gif|png';
+			$config['max_size']  = 500;
+			$config['encrypt_name'] = TRUE;
 
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload($file_element_name)){
+				$status = "error";
+				$msg = $this->upload->display_errors('', '');
+			}
+			else{
+				$data = $this->upload->data();
+				$filename = $data['file_name']; // ok
+				$origname = $data['orig_name'];
+				$path = $data['full_path'];
+				$status = "success";
+				$msg = "file successfully uploaded";
+				$this->respostes->guardaFilename($filename, $session_data['username'], 4, 2);
+				$this->respostes->guardarText($origname, $session_data['username'], 4, 21);
+				$this->respostes->guardarText($_POST['title'], $session_data['username'], 4, 22);
+
+			}
+			
+			$img1 = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 4,2);
+			$img2 = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 4,2);
+			$img3 = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 4,2);
+				
+				
+			@unlink($_FILES[$file_element_name]);
 		}
-		
-		$img1 = $this->respostes->getAltresRespostaFitxerUltim($session_data['username'], 4,2);
-		$img2 = $this->respostes->getAltresRespostaFitxerPenultim($session_data['username'], 4,2);
-		$img3 = $this->respostes->getAltresRespostaFitxerAvantPenultim($session_data['username'], 4,2);
-			
-			
-		@unlink($_FILES[$file_element_name]);
 		echo json_encode(array('status' => $status, 'msg' => $msg, 'filename' => $origname, 'path' => $filename,
-								'perque' => $_POST['title'], 'img1' => $img1, 'img2' => $img2, 'img3' => $img3));
+									'perque' => $_POST['title'], 'img1' => $img1, 'img2' => $img2, 'img3' => $img3));
 	}
 	
 	function guardaFrame(){

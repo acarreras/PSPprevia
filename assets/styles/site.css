@@ -2,6 +2,7 @@
 	font-family: Alsina;
 	src: url('../fonts/AlsinaUltrajada.ttf'),
 		 url('../fonts/AlsinaUltrajada.eot'); /* IE9 */
+	/* src: url('http://www.psp-obskene.org/assets/fonts/AlsinaUltrajada.ttf') */
 }
 @font-face{
 	font-family: Tomato;
@@ -215,9 +216,9 @@ a.capcalerafletxa:active{
 .contingutsboxwc{
     background-color: rgba(255,255,255,0);
 	margin: 0 auto;
-	padding-top:20%;
-	padding-left:10%;
-	width:50%;
+	margin-top: 150px;
+    margin-left: 350px;
+	width: 300px;
 }
 
 div.hr{
@@ -343,7 +344,7 @@ input[type=number]:invalid {
 .contingutstexttitolresposta{
 	position:relative;
 	margin-top: 15px;
-    font-family: 'Alsina', serif; font-size:24px; color:rgb(140,140,120); text-decoration: none;
+    font-family: 'Alsina', serif; font-size:24px; color:rgb(90,90,90); text-decoration: none;
 	text-align: left;
 }
 
@@ -504,6 +505,12 @@ a.mapa:active{
 	top:80px;
 }
 
+img:-moz-broken {
+	-moz-force-broken-image-icon:1;
+    height:0px;
+    width:0px;
+}
+
 .imgquadreesq{
     position : absolute;
 	left:43px;
@@ -518,4 +525,16 @@ a.mapa:active{
 	top:94px;
 	width: 493px;
 	height: 354px;
+}
+
+.imgportawc{
+    position: fixed;
+    top: 100px;
+    left: 300px;
+    height: 100%;
+}
+
+.iconadolorifelicitat{
+    position : relative;
+	margin-left:0px;
 }

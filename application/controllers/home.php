@@ -24,10 +24,16 @@ class Home extends CI_Controller {
 				$bapartat131fet == true && $bapartat132fet == true && 
 				$bapartat133fet == true){
 					$data['bsala1feta'] = true;
-					$bS1xEG = true;
 			}
 			else{
 					$data['bsala1feta'] = false;
+			}
+			if($bapartat11fet == true || $bapartat12fet == true || 
+				$bapartat131fet == true || $bapartat132fet == true || 
+				$bapartat133fet == true){
+					$bS1xEG = true;
+			}
+			else{
 					$bS1xEG = false;
 			}
 			
@@ -45,14 +51,22 @@ class Home extends CI_Controller {
 			
 			if($bapartat211fet == true && $bapartat212fet == true && 
 				$bapartat213fet == true && $bapartat214fet == true && 
-				$bapartat221fet == true&& $bapartat222fet == true && 
+				$bapartat221fet == true && $bapartat222fet == true && 
 				$bapartat2211fet == true && $bapartat2221fet == true && 
 				$bapartat23fet == true && $bapartat24fet == true){
 					$data['bsala2feta'] = true;
-					$bS2xEG = true;
 			}
 			else{
 					$data['bsala2feta'] = false;
+			}
+			if($bapartat211fet == true || $bapartat212fet == true || 
+				$bapartat213fet == true || $bapartat214fet == true || 
+				$bapartat221fet == true || $bapartat222fet == true || 
+				$bapartat2211fet == true || $bapartat2221fet == true || 
+				$bapartat23fet == true || $bapartat24fet == true){
+					$bS2xEG = true;
+			}
+			else{
 					$bS2xEG = false;
 			}
 			
@@ -64,10 +78,15 @@ class Home extends CI_Controller {
 			if($bapartat31fet == true && $bapartat311fet == true && 
 				$bapartat32fet == true){
 					$data['bsala3feta'] = true;
-					$bS3xEG = true;
 			}
 			else{
 					$data['bsala3feta'] = false;
+			}
+			if($bapartat31fet == true || $bapartat311fet == true || 
+				$bapartat32fet == true){
+					$bS3xEG = true;
+			}
+			else{
 					$bS3xEG = false;
 			}
 			
@@ -81,13 +100,20 @@ class Home extends CI_Controller {
 			
 			if($bapartat41fet == true && $bapartat42fet == true && 
 				$bapartat43fet == true && $bapartat421fet == true && 
-				$bapartat221fet == true&& $bapartat222fet == true && 
+				$bapartat221fet == true && $bapartat222fet == true && 
 				$bapartat422fet == true){
 					$data['bsala4feta'] = true;
-					$bS4xEG = true;
 			}
 			else{
 					$data['bsala4feta'] = false;
+			}
+			if($bapartat41fet == true || $bapartat42fet == true || 
+				$bapartat43fet == true || $bapartat421fet == true || 
+				$bapartat221fet == true || $bapartat222fet == true || 
+				$bapartat422fet == true){
+					$bS4xEG = true;
+			}
+			else{
 					$bS4xEG = false;
 			}
 			
@@ -96,23 +122,25 @@ class Home extends CI_Controller {
 			
 			if($bapartat71fet == true){
 					$data['bsala7feta'] = true;
-					$bS7xEG = true;
 			}
 			else{
 					$data['bsala7feta'] = false;
-					$bS7xEG = false;
 			}
 			
 			// exposicio global
 			if($bS1xEG == true && $bS2xEG == true && 
-				$bS3xEG == true && $bS4xEG == true && 
-				$bS7xEG = true){
+				$bS3xEG == true && $bS4xEG == true){
 					$data['bexpoglobal'] = true;
 			}
 			else{
 					$data['bexpoglobal'] = false;
 			}
 			
+			// sales vistes o no: fem un apartat fake 0 que estarà ple de text dades fake
+			$data['bbibliotecavista'] = $this->respostes->bapartatJaFet($session_data['username'], 5, 0); // biblioteca
+			$data['bdolorifelicitatvista'] = $this->respostes->bapartatJaFet($session_data['username'], 6, 0);
+			$data['blamevaexpovista'] = $this->respostes->bapartatJaFet($session_data['username'], 9, 0);
+			$data['bexpoglobalvista'] = $this->respostes->bapartatJaFet($session_data['username'], 8, 0);
 			
 			$this->load->view('home_view', $data);
 		}

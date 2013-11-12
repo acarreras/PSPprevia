@@ -12,6 +12,14 @@
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/styles/site.css'; ?>">
+	<!--Load JQUERY from Google's network -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script> 
+    // using JQUERY's 
+    $(document).ready(function () {
+		$.post("<?php echo base_url()?>index.php/biblioteca/salaVista", {faketext : 'vista'})
+	});
+  </script>
 </head>
 <body>
 	<!-- menú superior dreta -->
@@ -45,6 +53,21 @@
 		<!-- credits -->
 		<div class="contingutstitol"><?php echo($titolapartat3); ?></div>
 		<div class="hr"><hr/></div>
+		<div class="contingutsboxresposta">Traducció: Kàtia Pago</div>
+		<div class="contingutsboxresposta">Direcció: Judith Pujol Llop</div>
+		<div class="contingutsboxresposta">Ajudant de direcció: Anna Maria Ricart</div>
+		<div class="contingutsboxresposta">Intèrpret: Ilona Muñoz Rizzo</div>
+		<div class="contingutsboxresposta">Escenografia: Adrià Pinar</div>
+		<div class="contingutsboxresposta">Mitjans interactius: (Etc Inventions) Anna Carreras i Chema Blanco</div>
+		<div class="contingutsboxresposta">Disseny gràfic: Laia Gutiérrez</div>
+		<div class="contingutsboxresposta">Suport al disseny gràfic: Dídac Soto Valdés</div>
+		<div class="contingutsboxresposta">Espai sonor: Aurélie Raoût (Lilou)</div>
+		<div class="contingutsboxresposta">Assessorament pedagògic: Neus Ballesteros Ventura</div>
+		<div class="contingutsboxresposta">Il·luminació: Dani Sánchez</div>
+		<div class="contingutsboxresposta">Vestuari: Giulia Grumi</div>
+		<div class="contingutsboxresposta">Producció: Ilona Muñoz Rizzo i Judith Pujol</div>
+		<div class="contingutsboxresposta">Dossier didàctic a càrrec de: Neus Ballesteros Ventura i Ilona Muñoz Rizzo</div>
+		<div class="contingutsboxresposta">Amb imatges de Maria Beitia i Alba Sotorra.</div>
 	</div>
 </body>
 </html>

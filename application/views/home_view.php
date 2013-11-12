@@ -38,27 +38,34 @@
 	<?php if($bsala2feta == true){ ?>
 		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaSOover.png'; ?>" />
 	<?php } ?>
-	<?php if($bsala3feta == true){ ?>
+	<?php if($bsala4feta == true){ ?>
 		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaDELAIMATGEover.png'; ?>" />
 	<?php } ?>
-	<?php if($bsala4feta == true){ ?>
+	<?php if($bsala3feta == true){ ?>
 		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaJOover.png'; ?>" />
 	<?php } ?>
-	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaBIBLIOover.png'; ?>" />
-	<?php if($bexpoglobal == true){ ?>
+	<?php if($bbibliotecavista == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaBIBLIOover.png'; ?>" />
+	<?php } ?>
+	<?php if($bexpoglobalvista == true){ ?>
 		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaEXPOGLOBALover.png'; ?>" />
 	<?php } ?>
-	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaDOLORiFELICITATover.png'; ?>" />
+	<?php if($bdolorifelicitatvista == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaDOLORiFELICITATover.png'; ?>" />
+	<?php } ?>
 	<?php if($bsala7feta == true){ ?>
 		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaWCover.png'; ?>" />
 	<?php } ?>
-	<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaLAMEVAEXPOover.png'; ?>" />
-	<!-- text presentacio -->
+	<?php if($blamevaexpovista == true){ ?>
+		<img class="mapasales" src="<?php echo base_url().'/assets/images/pinzellades/salaLAMEVAEXPOover.png'; ?>" />
+	<?php } ?>
+	<!-- text presentacio
 	<div class="contingutsboxresposta">
 	  <span>Hola,</span> <span style="text-transform:uppercase;"><?php echo($username); ?>,</span> <span>soc la I.,</span> <span>la que va anar a K.,</span> <span>sí!</span></br>
 	  <span>Si jo fos pintora...</span> <span>com R,</span> <span>sabeu aquell</span> <span>que diuen que mantenia</span> <span>l'univers tot blanc</span></br>
 	  <span>Si jo fos pintora</span> <span>potser</span> <span>tot seria</span> <span>més fàcil</span> <span>Ajudeu-me a representar</span> <span> el DOLOR</span> <span>i la FELICITAT!</span>
 	</div>
+	-->
 	<!-- links a sales -->
 	<div class="saladelesparaulesbox">
 		<a class="mapa" href="<?php echo ('saladelesparaules'); ?>">SALA DE</br>LES PARAULES</a>
@@ -73,7 +80,7 @@
 		<a class="mapa" href="<?php echo ('saladeljo'); ?>">SALA DEL JO</a>
 	</div>
 	<div class="bibliotecabox">
-		<a class="mapa" href="<?php echo ('biblioteca'); ?>">BIBLIOTECA</br>(DOSSIERS</br>PEDAGOGICS)</a>
+		<a class="mapa" href="<?php echo ('biblioteca'); ?>">BIBLIOTECA</a>
 	</div>
 	<?php if($bexpoglobal == true){ ?>
 		<div class="exposicioglobalbox">
@@ -82,7 +89,7 @@
 	<?php } else{ ?>
 		<div class="exposicioglobalbox">
 			<a class="mapa" href="#">L'EXPOSICIO</br>GLOBAL</a>
-			<div class="contingutsboxresposta">(supera les sales</br>per entrar)</div>
+			<div class="contingutsboxresposta">(abans entra a</br>les altres sales)</div>
 		</div>
 	<?php } ?>
 	<div class="saladeldolorilafelicitatbox">

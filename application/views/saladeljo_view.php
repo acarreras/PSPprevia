@@ -18,6 +18,7 @@
 	<script> 
     // using JQUERY's 
     $(document).ready(function () {
+		
 		$('#saladeljoautoretratok').click(function(e) {
 			e.preventDefault();
 			$.ajaxFileUpload({
@@ -30,11 +31,19 @@
 				},
 				success  : function (data, status){
 					if(data.status == 'error'){
-						$('#filenameautorretrat').html("Error guardant el so: torna-ho a provar. " + data.msg);
+						$('#filenameautorretrat').html("Error guardant l'autorretrat: torna-ho a provar. " + data.msg);
 					}
 					else if(data.status == 'success'){
 						$('#autorretratimatge').attr('src', '<?php echo base_url()?>files/' + data.path);
+						$('#autorretratimatge').css("display", "inline");
 						$('#filenameautorretrat').html("El teu autoretrat " + data.filename + " s'ha guardat correctament");
+						$('#formautorretrat').hide();
+						$('#resultatautorretratimg1').attr('src', '<?php echo base_url()?>files/' + data.img1);
+						$('#resultatautorretratimg1').css("display", "inline");
+						$('#resultatautorretratimg2').attr('src', '<?php echo base_url()?>files/' + data.img2);
+						$('#resultatautorretratimg2').css("display", "inline");
+						$('#resultatautorretratimg3').attr('src', '<?php echo base_url()?>files/' + data.img3);
+						$('#resultatautorretratimg3').css("display", "inline");
 					}
 				}
 			});
@@ -75,12 +84,18 @@
 		<div class="contingutstitol"><?php echo($titolapartat1); ?></div>
 		<div class="hr"><hr/></div>
 		<?php if ($bapartat1fet == false) { ?>
-			<form>
+			<form id="formautorretrat">
 				<input type="file" class="choosefileboto" id="userfile" name="userfile"/>
 				<input id="saladeljoautoretratok" type="button" value="ok"/>
 			</form>
-				<img class="contingutsimatge60percent" id="autorretratimatge" src="" onerror='this.style.display = "none"'/>
-				<div class="contingutsboxresposta" id="filenameautorretrat"></div>
+			<div class="contingutsboxresposta" id="filenameautorretrat"></div>
+			<img class="contingutsimatge60percent" id="autorretratimatge" src="" onerror='this.style.display = "none"'/>
+			<div style="clear:both">
+				<div class="contingutstexttitolresposta">Altres autorretrats! (els últims)</div>
+				<img class="contingutsimatge30percent" id="resultatautorretratimg1" src="" onerror='this.style.display = "none"'/>
+				<img class="contingutsimatge30percent" id="resultatautorretratimg2" src="" onerror='this.style.display = "none"'/>
+				<img class="contingutsimatge30percent" id="resultatautorretratimg3" src="" onerror='this.style.display = "none"'/>
+			</div>
 		<?php } else { ?>
 			<div class="contingutstexttitolresposta">El teu autorretrat</div>
 			<img class="contingutsimatge50percent" src="<?php echo base_url().'files/'.$autoretratpropi; ?>" />

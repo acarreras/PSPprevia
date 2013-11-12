@@ -11,8 +11,7 @@
 	function index(){
 		$this->load->library(array('form_validation'));
 
-		if($this->session->userdata('logged_in'))
-		{
+		if($this->session->userdata('logged_in')){
 			$session_data = $this->session->userdata('logged_in');
 			$data['username'] = $session_data['username'];
 			$result = $this->sala->getSalaById(5);
@@ -28,12 +27,15 @@
 						
 			$this->load->view('biblioteca_view', $data);
 		}
-		else
-		{
+		else{
 			//If no session, redirect to login page
 			redirect('login', 'refresh');
 		}
-		
+	}
+	
+	function salaVista(){
+		$session_data = $this->session->userdata('logged_in');
+		$this->respostes->guardarText($this->input->post('faketext'), $session_data['username'], 5, 0);
 	}
 }
 ?>
